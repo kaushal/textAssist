@@ -4,10 +4,13 @@ from bottle import route, run, request, abort
 from pymongo import Connection
 
 connection = Connection('localhost', 27017)
+if connection:
+    print 'adsf'
 db = connection.mydatabase
 
 @route('/documents', method='PUT')
 def put_documentat():
+    print 'in the put route'
     data = request.body.readline()
     if not data:
         abort(400, 'No _id recieved')
@@ -22,7 +25,8 @@ def put_documentat():
         abooort(400, str(ve))
 @route('/documents/:id', method='GET')
 def get_document(id):
-    entity = db['documents'].find_one({'_id':id})
+    print 'in get route'
+    entity = db['test'].find_one({'_id':id})
     if not entity:
         abort(404, 'No document with id %s' % id)
     return entity
