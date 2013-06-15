@@ -1,12 +1,18 @@
 import json
 import bottle
-from bottle import route, run, request, abort
+from bottle import response, route, run, request, abort, post
 from pymongo import Connection
 
 connection = Connection('localhost', 27017)
 if connection:
     print 'adsf'
 db = connection.mydatabase
+
+@route('/postUsers/', method='POST')
+def post_user():
+    response.content_type = 'application/json'
+    userObject = response.json
+    print userObject
 
 @route('/documents', method='PUT')
 def put_documentat():
@@ -22,7 +28,7 @@ def put_documentat():
     try:
         db['documents'].save(entity)
     except ValidationError as ve:
-        abooort(400, str(ve))
+        abort(400, str(ve))
 @route('/documents/:id', method='GET')
 def get_document(id):
     print 'in get route'
