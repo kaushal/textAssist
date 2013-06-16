@@ -624,7 +624,7 @@
     if (!slider || isScrolling) return;
 
     setSlideNumber(
-      (+new Date) - startTime < 1000 && Math.abs(deltaX) > 15 ? (deltaX < 0 ? -1 : 1) : 0;
+      (+new Date) - startTime < 1000 && Math.abs(deltaX) > 15 ? (deltaX < 0 ? -1 : 1) : 0
     );
 
     offsetX = slideNumber * sliderWidth;

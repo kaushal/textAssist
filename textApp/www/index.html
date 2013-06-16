@@ -11,50 +11,29 @@
         
     </head>
     <body>
-
-        <!-- Invitation Page Begin-->
+        <!-- Chat Page Begin-->
         <header class="bar-title">
-            <ul class="segmented-controller">
-                <li class="active">
-                  <a href="#">Make Group</a>
-                </li>
-                <li>
-                    <a href="#">Groups</a>
-                </li>
-            </ul>
-            <a class="button-next" href="chat.html">Chat</a>
+            <h1 class="title">Text Assist</h1>
         </header>
-        <div class="bar-standard bar-header-secondary target-text">
-            <form>
-              <input type="text" placeholder="Target's number">
-            </form>
-        </div>
-        <nav class="bar-footer">
-            <form>
-                <input class="message" type="text" placeholder="New group name">
-                <a class="button-positive button-block button-send">Make</a>
-            </form>
-            
-        </nav>
         <div class="content">
-            <ul class="list">
-                <li >
-                    <p style="width:90%;">Firstname lastName</p>
-                    <!--<input type="checkbox" name="check" value="check-id" style="float:left;">-->
-                </li>
-                <li>
-                    <p>Firstname lastName</p>
-                </li>
-                <li>
-                    <p>Firstname lastName</p>
-                </li>
-            </ul>
+            <div style="margin-top:10%;">
+                <form>
+                    <div class="input-group">
+                        <div class="input-row">
+                            <label>Name</label>
+                            <input type="text" placeholder="Sir Fancybottom">
+                        </div>
+                    </div>
+                    <a class="button-main button-block" href="invite.html" onclick="postLogin('testName')">Enter</a> 
+                </form>
+            </div>
         </div>
-        <!-- Invitation Page End -->
+        <!-- Chat Page End -->
 
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script src="ratchet/ratchet.js"></script>
+        <script src="js/ratchet.js"></script>
+        <script src="js/clientRest.js"></script>
     </body>
 </html>
