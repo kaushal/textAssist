@@ -1,7 +1,7 @@
 (function ($, document, window) {
 	"use strict";
 
-	var serverUrl = "http://kparikh.com:8080/user";
+	var serverUrl = "http://184.72.217.228/user";
 
 
 	$(document).ready(function() {

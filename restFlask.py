@@ -1,8 +1,12 @@
 from flask import Flask, request
 from pymongo import Connection
 import json
-
+import logging
+import sys
+logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
+logging.debug("work or i kill you ")
 app = Flask(__name__)
+app.config.from_pyfile('config.py')
 connection = Connection('localhost', 27017)
 db = connection.users
 
