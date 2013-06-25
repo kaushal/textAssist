@@ -1,7 +1,7 @@
-(function (document, window) {
+(function ($, document, window) {
 	"use strict";
 
-	var serverUrl = "http://kparikh:8080/user";
+	var serverUrl = "http://kparikh.com:8080/user";
 
 
 	$(document).ready(function() {
@@ -11,36 +11,29 @@
 		});
 	});
 
-	var loadXMLDoc = function(sendData)
-	{
-		"use strict";
-		var xmlhttp;
-		if (window.XMLHttpRequest)
-		{// code for IE7+, Firefox, Chrome, Opera, Safari
-			xmlhttp = new XMLHttpRequest();
-		}
-		else
-		{// code for IE6, IE5
-			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-		xmlhttp.onreadystatechange=function() {
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-			{
-				alert(xmlhttp.responseText);
+	//Shared functions
+	var ajax = function(url, settings, callback) {
+		$.ajax({
+			type: "GET",
+			url: url,
+			dataType: "json",
+			data: settings
+		})
+		.success( function(data) { 
+			if(callback) {
+				callback(data); 
 			}
-		}
-		xmlhttp.open("POST",serverUrl,true);
-		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		xmlhttp.send(sendData);
+		});
 	};
 
 
 	var postLogin = function() {
 		var loginInfo = {};
-		loginInfo.name="Test";
+		var settings = {
+			test : "testcrap"
+		};
 
-		var info = JSON.stringify(loginInfo);
-		loadXMLDoc("info="+info);
+		ajax(serverUrl, settings, null );
 		return;
 	};
 
@@ -49,4 +42,4 @@
 
 	};
 
-}(document, window));
+}(window.$, document, window));
