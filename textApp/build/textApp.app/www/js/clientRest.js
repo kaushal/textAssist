@@ -6,7 +6,7 @@
 
 	$(document).ready(function() {
 		$("#b-login").click(function() {
-			var name = document.getElementById("i-name");
+			var name = document.getElementById("#i-name");
 			postLogin(name);
 		});
 	});
