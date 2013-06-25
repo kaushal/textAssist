@@ -11,15 +11,18 @@
 		});
 	});
 
+
 	//Shared functions
 	var ajax = function(url, settings, callback) {
 		$.ajax({
-			type: "GET",
+			type: "POST",
 			url: url,
 			dataType: "json",
-			data: JSON.stringify(settings)
+			data: settings,
+			contentType: "application/json"
 		})
 		.success( function(data) { 
+			console.dir(data);
 			if(callback) {
 				callback(data); 
 			}
@@ -30,7 +33,7 @@
 	var postLogin = function() {
 		var loginInfo = {};
 		var settings = {
-			test : "testcrap"
+			test : "testcraseeeep"
 		};
 
 		ajax(serverUrl, settings, null );
