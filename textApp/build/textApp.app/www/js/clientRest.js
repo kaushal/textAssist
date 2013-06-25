@@ -6,7 +6,7 @@
 
 	$(document).ready(function() {
 		$("#b-login").click(function() {
-			var name = document.getElementById("#i-name");
+			var name = document.getElementById("i-name").value;
 			postLogin(name);
 		});
 	});
@@ -18,10 +18,11 @@
 			type: "POST",
 			url: url,
 			dataType: "jsonp",
+			contentType: "application/json; charset=utf-8",
 			data: settings
 		})
 		.success( function(data) { 
-			console.dir(data);
+			window.console.dir(data);
 			if(callback) {
 				callback(data); 
 			}
@@ -34,9 +35,7 @@
 		var settings = {
 			name : data
 		};
-
 		ajax(serverUrl, settings, null );
-		return;
 	};
 
 	var getGroups = function() {
