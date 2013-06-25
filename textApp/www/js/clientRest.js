@@ -17,7 +17,7 @@
 			type: "GET",
 			url: url,
 			dataType: "json",
-			data: settings
+			data: JSON.stringify(settings)
 		})
 		.success( function(data) { 
 			if(callback) {
