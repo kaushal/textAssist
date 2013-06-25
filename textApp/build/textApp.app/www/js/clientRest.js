@@ -29,10 +29,10 @@
 	};
 
 
-	var postLogin = function() {
+	var postLogin = function(data) {
 		var loginInfo = {};
 		var settings = {
-			test : "testcraseeeep"
+			name : data
 		};
 
 		ajax(serverUrl, settings, null );
