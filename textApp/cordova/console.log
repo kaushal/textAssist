@@ -624,3 +624,38 @@ Terminating in response to SpringBoard's termination.
 2013-06-15 20:16:19.972 textApp[3078:19103] Resetting plugins due to page load.
 2013-06-15 20:16:20.036 textApp[3078:19103] Finished load of: file:///Users/carlosgil/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/ED9F68A9-E7DF-4F1B-9EB3-766A61735294/textApp.app/www/index.html
 2013-06-15 20:16:20.061 textApp[3078:19103] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+Terminating in response to SpringBoard's termination.
+2013-06-18 00:08:23.879 textApp[9125:19103] Multi-tasking -> Device: YES, App: YES
+2013-06-18 00:08:24.138 textApp[9125:19103] Resetting plugins due to page load.
+2013-06-18 00:08:24.318 textApp[9125:19103] Finished load of: file:///Users/carlosgil/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/ED9F68A9-E7DF-4F1B-9EB3-766A61735294/textApp.app/www/index.html
+2013-06-18 00:08:24.371 textApp[9125:19103] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-06-18 00:09:21.449 textApp[9158:19103] Multi-tasking -> Device: YES, App: YES
+2013-06-18 00:09:21.495 textApp[9158:19103] Resetting plugins due to page load.
+2013-06-18 00:09:21.550 textApp[9158:19103] Finished load of: file:///Users/carlosgil/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/ED9F68A9-E7DF-4F1B-9EB3-766A61735294/textApp.app/www/index.html
+2013-06-18 00:09:21.578 textApp[9158:19103] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+Terminating in response to SpringBoard's termination.
+2013-06-22 17:06:48.662 textApp[11540:19103] Multi-tasking -> Device: YES, App: YES
+2013-06-22 17:06:49.633 textApp[11540:19103] Resetting plugins due to page load.
+2013-06-22 17:06:49.975 textApp[11540:19103] Finished load of: file:///Users/carlosgil/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/ED9F68A9-E7DF-4F1B-9EB3-766A61735294/textApp.app/www/index.html
+2013-06-22 17:06:50.038 textApp[11540:19103] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+Terminating in response to SpringBoard's termination.
+2013-06-24 21:04:00.113 textApp[1207:19103] Multi-tasking -> Device: YES, App: YES
+2013-06-24 21:04:01.403 textApp[1207:19103] Resetting plugins due to page load.
+2013-06-24 21:04:02.329 textApp[1207:19103] Finished load of: file:///Users/carlosgil/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/ED9F68A9-E7DF-4F1B-9EB3-766A61735294/textApp.app/www/index.html
+2013-06-24 21:04:02.618 textApp[1207:19103] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-06-24 21:07:03.127 textApp[1365:19103] Multi-tasking -> Device: YES, App: YES
+2013-06-24 21:07:03.171 textApp[1365:19103] Resetting plugins due to page load.
+2013-06-24 21:07:03.226 textApp[1365:19103] Finished load of: file:///Users/carlosgil/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/ED9F68A9-E7DF-4F1B-9EB3-766A61735294/textApp.app/www/index.html
+2013-06-24 21:07:03.252 textApp[1365:19103] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-06-24 21:07:51.881 textApp[1504:19103] Multi-tasking -> Device: YES, App: YES
+2013-06-24 21:07:51.923 textApp[1504:19103] Resetting plugins due to page load.
+2013-06-24 21:07:51.985 textApp[1504:19103] Finished load of: file:///Users/carlosgil/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/ED9F68A9-E7DF-4F1B-9EB3-766A61735294/textApp.app/www/index.html
+2013-06-24 21:07:52.011 textApp[1504:19103] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-06-24 21:13:44.671 textApp[1683:19103] Multi-tasking -> Device: YES, App: YES
+2013-06-24 21:13:44.713 textApp[1683:19103] Resetting plugins due to page load.
+2013-06-24 21:13:44.793 textApp[1683:19103] Finished load of: file:///Users/carlosgil/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/ED9F68A9-E7DF-4F1B-9EB3-766A61735294/textApp.app/www/index.html
+2013-06-24 21:13:44.818 textApp[1683:19103] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-06-24 21:14:19.704 textApp[1827:19103] Multi-tasking -> Device: YES, App: YES
+2013-06-24 21:14:19.744 textApp[1827:19103] Resetting plugins due to page load.
+2013-06-24 21:14:19.815 textApp[1827:19103] Finished load of: file:///Users/carlosgil/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/ED9F68A9-E7DF-4F1B-9EB3-766A61735294/textApp.app/www/index.html
+2013-06-24 21:14:19.844 textApp[1827:19103] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 

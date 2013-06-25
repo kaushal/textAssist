@@ -5,7 +5,8 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        
+        <script type="text/javascript" src="js/jquery-2.0.2.min.js"></script>
+        <script type="text/javascript" src="js/clientRest.js"></script>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>TextApp</title>
         
@@ -21,10 +22,10 @@
                     <div class="input-group">
                         <div class="input-row">
                             <label>Name</label>
-                            <input type="text" placeholder="Sir Fancybottom">
+                            <input type="text" id="i-name" placeholder="Sir Fancybottom">
                         </div>
                     </div>
-                    <a class="button-main button-block" href="invite.html" onclick="postLogin('testName')">Enter</a> 
+                    <a class="button-main button-block" id="b-login" href="invite.html">Enter</a> 
                 </form>
             </div>
         </div>

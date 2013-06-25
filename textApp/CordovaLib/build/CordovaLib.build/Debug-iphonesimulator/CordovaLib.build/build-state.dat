@@ -6,10 +6,10 @@ cCpHeader Classes/CDVExif.h /Users/carlosgil/Documents/textAssist/textApp/build/
 cCpHeader Classes/CDVJpegHeaderWriter.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVJpegHeaderWriter.h
 cCpHeader Classes/CDVCamera.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVCamera.h
 cCpHeader Classes/NSDictionary+Extensions.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/NSDictionary+Extensions.h
-cCpHeader Classes/CDVContacts.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVContacts.h
 cCpHeader Classes/CDVFile.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVFile.h
-cCpHeader Classes/CDVLocation.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVLocation.h
+cCpHeader Classes/CDVContacts.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVContacts.h
 cCpHeader Classes/CDVInvokedUrlCommand.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVInvokedUrlCommand.h
+cCpHeader Classes/CDVLocation.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVLocation.h
 cCpHeader Classes/CDVNotification.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVNotification.h
 cCpHeader Classes/NSData+Base64.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/NSData+Base64.h
 cCpHeader Classes/CDVReachability.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVReachability.h
@@ -18,22 +18,22 @@ cCpHeader Classes/CDVAccelerometer.h /Users/carlosgil/Documents/textAssist/textA
 cCpHeader Classes/CDVContact.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVContact.h
 cCpHeader Classes/CDVPluginResult.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVPluginResult.h
 cCpHeader Classes/CDVFileTransfer.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVFileTransfer.h
-cCpHeader Classes/CDVConnection.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVConnection.h
 cCpHeader Classes/CDVCapture.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVCapture.h
-cCpHeader Classes/CDVDebug.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVDebug.h
+cCpHeader Classes/CDVConnection.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVConnection.h
 cCpHeader Classes/CDVPlugin.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVPlugin.h
-cCpHeader Classes/CDVSplashScreen.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVSplashScreen.h
+cCpHeader Classes/CDVDebug.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVDebug.h
 cCpHeader Classes/NSMutableArray+QueueAdditions.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/NSMutableArray+QueueAdditions.h
+cCpHeader Classes/CDVSplashScreen.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVSplashScreen.h
 cCpHeader Classes/CDVBattery.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVBattery.h
 cCpHeader Classes/CDVWhitelist.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVWhitelist.h
 cCpHeader Classes/CDVURLProtocol.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVURLProtocol.h
 cCpHeader Classes/CDVViewController.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVViewController.h
-cCpHeader Classes/CDV.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDV.h
 cCpHeader Classes/CDVCommandDelegate.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVCommandDelegate.h
+cCpHeader Classes/CDV.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDV.h
 cCpHeader Classes/CDVAvailability.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVAvailability.h
 cCpHeader Classes/CDVLocalStorage.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVLocalStorage.h
-cCpHeader Classes/CDVLogger.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVLogger.h
 cCpHeader Classes/UIDevice+Extensions.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/UIDevice+Extensions.h
+cCpHeader Classes/CDVLogger.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVLogger.h
 cCpHeader Classes/NSArray+Comparisons.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/NSArray+Comparisons.h
 cCpHeader Classes/CDVDevice.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVDevice.h
 cCpHeader Classes/CDVEcho.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVEcho.h
@@ -44,29 +44,27 @@ cCpHeader Classes/CDVInAppBrowser.h /Users/carlosgil/Documents/textAssist/textAp
 cCpHeader Classes/CDVScreenOrientationDelegate.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVScreenOrientationDelegate.h
 cCpHeader Classes/CDVConfigParser.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVConfigParser.h
 cCpHeader Classes/CDVJSON.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVJSON.h
-cCpHeader Classes/CDVUserAgentUtil.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVUserAgentUtil.h
 cCpHeader Classes/CDVWebViewDelegate.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVWebViewDelegate.h
+cCpHeader Classes/CDVUserAgentUtil.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVUserAgentUtil.h
 cCpHeader Classes/CDVTimer.h /Users/carlosgil/Documents/textAssist/textApp/build/include/Cordova/CDVTimer.h
 cProcessPCH /var/folders/kk/8825kg0n6hj3tqnrn6xpt65w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/CordovaLib_Prefix-hdfnyfbpspczsugllizggybkirdf/CordovaLib_Prefix.pch.pth CordovaLib_Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/UIDevice+Extensions.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/UIDevice+Extensions.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVConfigParser.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVConfigParser.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVContact.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVContact.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVConnection.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVConnection.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVPlugin.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVPlugin.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVLocation.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVLocation.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVCamera.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVCamera.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/NSDictionary+Extensions.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/NSDictionary+Extensions.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVContacts.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVContacts.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVFile.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVFile.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVInvokedUrlCommand.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVInvokedUrlCommand.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/NSDictionary+Extensions.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/NSDictionary+Extensions.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVLocation.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVLocation.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVNotification.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVNotification.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVReachability.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVReachability.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/NSData+Base64.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/NSData+Base64.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVReachability.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVReachability.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVSound.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVSound.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVAccelerometer.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVAccelerometer.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVContact.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVContact.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVPluginResult.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVPluginResult.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVFileTransfer.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVFileTransfer.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVConnection.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVConnection.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVPluginResult.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVPluginResult.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVCapture.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVCapture.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVPlugin.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVPlugin.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVSplashScreen.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVSplashScreen.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/NSMutableArray+QueueAdditions.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/NSMutableArray+QueueAdditions.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVBattery.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVBattery.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
@@ -75,13 +73,15 @@ cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVViewController.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVLocalStorage.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVLocalStorage.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVLogger.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVLogger.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/NSArray+Comparisons.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/NSArray+Comparisons.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/UIDevice+Extensions.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/UIDevice+Extensions.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVDevice.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVDevice.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/NSArray+Comparisons.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/NSArray+Comparisons.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVEcho.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVEcho.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVCommandQueue.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVCommandQueue.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVCommandDelegateImpl.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVCommandDelegateImpl.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVGlobalization.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVGlobalization.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVInAppBrowser.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVInAppBrowser.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVConfigParser.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVConfigParser.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVJSON.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVJSON.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVUserAgentUtil.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVUserAgentUtil.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVWebViewDelegate.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVWebViewDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
@@ -870,7 +870,7 @@ s2841768
 
 CCheck dependencies
 r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies6501b3523b6db741^736805533b6db741^---0#1#0#--18"Check dependencies36"01DCD7F5-069F-4FD1-B94A-E32CF440458A-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies8d47656a2679b741^4ef2cf6a2679b741^---0#1#0#--18"Check dependencies36"4B821D6E-BDDD-4152-956E-F01AA7F769DD-
 
 CCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVAccelerometer.o /Users/carlosgil/Documents/textAssist/textApp/CordovaLib/Classes/CDVAccelerometer.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 s392864373.060782
