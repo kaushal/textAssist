@@ -17,9 +17,8 @@
 		$.ajax({
 			type: "POST",
 			url: url,
-			dataType: "json",
-			data: settings,
-			contentType: "application/json"
+			dataType: "jsonp",
+			data: settings
 		})
 		.success( function(data) { 
 			console.dir(data);
