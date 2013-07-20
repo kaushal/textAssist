@@ -73,26 +73,32 @@ window.magic = (function ($, document, window, Parse) {
      *  Returns:    List of my friends numbers who use the app - Array( number1, number2, ...)
      */
     magic.getMyFriends = function (myNumber) {
-        var finalList = [];
         var UserTable = Parse.Object.extend("test2");
         var query = new Parse.Query(UserTable);
 
         query.equalTo("number", myNumber);  //   Find myself
 
-        query.find().then(function (Table){
-            var listOfMyFriendsNumbers = Table[0]._serverData.contacts;
-            if(listOfMyFriendsNumbers === 'undefined')
-                return finalList;
-            for(var i = 0; i < listOfMyFriendsNumbers.length; i++) {
-                query.equalTo("number", listOfMyFriendsNumbers[i]);
-                query.find().then(function (Table2){
-                    if(magic.isset(Table2)) {
-                        finalList.push(Table2[0]._serverData.number);
-                    }
-                });
+        return query.find().then(function (Table) {
+            var listOfMyFriendsNumbers = Table[0]._serverData.contacts; 
+            if(listOfMyFriendsNumbers === 'undefined') {
+                return [];
             }
+            var promises = [];
+            for(var i = 0; i < listOfMyFriendsNumbers.length; i++) {    //  Go through all of my contacts
+                query.equalTo("number", listOfMyFriendsNumbers[i]);
+                promises.push(
+                    query.find()
+                );
+            }
+            return Parse.Promise.when(promises)
+                .then(function (results) {      
+                    window.console.log(JSON.stringify(results));
+                        var finalList = [];     
+                        if(magic.isset(results)) {
+                            finalList.push(results[0]._serverData.number);
+                        }
+                    });
         });
-        return finalList;
     };
 
     /*

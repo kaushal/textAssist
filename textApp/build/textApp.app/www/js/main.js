@@ -40,7 +40,7 @@
 						numbers[i] = contacts[i].phoneNumbers[0].value;
 					}
 				}
-				numbers = ["(123) 456-7890","(222) 333-4444"];	//	Fake it
+				numbers = ["1234567891","(222) 333-4444"];	//	Fake it
 				magic.parseLogin(number, name, numbers)
 					.then(function(loginStatus) {
 						loginStatus = Number(loginStatus);
@@ -94,7 +94,8 @@
 
 		//	Populate contact list with friends who have the app
 		var populateContactList = function() {
-			var friends = magic.getMyFriends();
+			var myNumber = getMyNumber();
+			var friends = magic.getMyFriends(myNumber);
 			$('#contactList').empty();
 			for (var i = 0; i < friends.length; i++) {
 				$('#contactList').append('<li><p>'+ friends[i] +'</p></li>');
