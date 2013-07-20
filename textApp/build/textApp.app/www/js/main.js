@@ -3,7 +3,7 @@
 
 	$(function() {
 		var ERROR_LOGIN = "Could not log in";
-		var curScreen = "login";
+		var curPage = "login";
 
 		//	Bindings
 		$('#b-login').click(function(){
@@ -42,10 +42,19 @@
 
 		//	Go to the login screen
 		var goTo = function(page) {
-			curScreen = page;
-			
-
+			curPage = page;
 		};
+
+		//	Show the current page
+		var showPage = function(page) {
+			$('.page').hide();
+			var pageId = '#'+page;
+			$(pageId).show();
+		};
+
+
+		//	Start the app - show correct page
+		showPage(curPage);
 
 
 	});

@@ -14,29 +14,102 @@
         
     </head>
     <body>
-        <!-- Chat Page Begin-->
-        <header class="bar-title">
-            <h1 class="title">Text Assist</h1>
-        </header>
-        <div class="content">
-            <div style="margin-top:10%;">
-                <form>
-                    <div class="input-group">
-                        <div class="input-row">
-                            <label>Name</label>
-                            <input type="text" id="i-name" placeholder="Sir Fancybottom">
-                        </div>
-                        <div class="input-row">
-                            <div>
-                                <b id="feedback"></b>
+         <!-- Login Page Begin-->
+        <div id="loginPage" class="page">
+            <header class="bar-title">
+                <h1 class="title">Text Assist</h1>
+            </header>
+            <div class="content">
+                <div style="margin-top:10%;">
+                    <form>
+                        <div class="input-group">
+                            <div class="input-row">
+                                <label>Name</label>
+                                <input type="text" id="i-name" placeholder="Sir Fancybottom">
+                            </div>
+                            <div class="input-row">
+                                <div>
+                                    <b id="feedback"></b>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <a class="button-main button-block" id="b-login" href="groups.html">Enter</a> 
+                        <a class="button-main button-block" id="b-login" href="groups.html">Enter</a> 
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Login Page End -->
+
+        <!-- Chat Page Begin-->
+        <div id="chatPage" class="page">
+            <header class="bar-title">
+                <a class="button-prev" href="groups.html">Groups</a>
+                <h1 class="title">Text Assist</h1>
+            </header>
+            <nav class="bar-standard bar-header-secondary">
+                <!-- Segmented controller in standard bar fixed to top -->
+                <ul class="segmented-controller">
+                    <li class="active">
+                      <a href="#">Group chat</a>
+                    </li>
+                    <li>
+                        <a href="#">Target chat</a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="bar-footer">
+                <form>
+                    <input class="message" type="text" placeholder="Message">
+                    <a class="button-positive button-block button-send">Send</a>
                 </form>
+                
+            </nav>
+            <div class="content">
             </div>
         </div>
         <!-- Chat Page End -->
+
+        <!-- Groups Page Begin-->
+        <div id="groupPage" class="page">
+            <header class="bar-title">
+                <ul class="segmented-controller">
+                    <li class="active">
+                      <a href="#">Make Group</a>
+                    </li>
+                    <li>
+                        <a href="#">Groups</a>
+                    </li>
+                </ul>
+                <a class="button-next" href="chat.html">Chat</a>
+            </header>
+            <div class="bar-standard bar-header-secondary target-text">
+                <form>
+                  <input type="text" placeholder="Target's number">
+                </form>
+            </div>
+            <nav class="bar-footer">
+                <form>
+                    <input class="message" type="text" placeholder="New group name">
+                    <a class="button-positive button-block button-send">Make</a>
+                </form>
+                
+            </nav>
+            <div class="content">
+                <ul class="list">
+                    <li >
+                        <p style="width:90%;">Firstname lastName</p>
+                        <!--<input type="checkbox" name="check" value="check-id" style="float:left;">-->
+                    </li>
+                    <li>
+                        <p>Firstname lastName</p>
+                    </li>
+                    <li>
+                        <p>Firstname lastName</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Groups Page End -->
 
 
         <script type="text/javascript" src="cordova.js"></script>
