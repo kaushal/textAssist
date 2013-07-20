@@ -57,7 +57,7 @@ window.magic = (function ($, document, window, Parse) {
         return query.find().then(function (Table){
             if(magic.isset(Table)){
                 var table = Table[0];
-                return Table[0]._serverData.groups;
+                return Table[0].toJSON().groups;
             }
             else
                 return [];
@@ -79,7 +79,9 @@ window.magic = (function ($, document, window, Parse) {
         query.equalTo("number", myNumber);  //   Find myself
 
         return query.find().then(function (Table) {
-            var listOfMyFriendsNumbers = Table[0]._serverData.contacts; 
+            var temp = Table[0].toJSON();
+
+            var listOfMyFriendsNumbers = Table[0].toJSON().contacts; 
             if(listOfMyFriendsNumbers === 'undefined') {
                 return [];
             }
@@ -91,11 +93,11 @@ window.magic = (function ($, document, window, Parse) {
                 );
             }
             return Parse.Promise.when(promises)
-                .then(function (results) {      
+                .then(function (Table) {      
                     window.console.log(JSON.stringify(results));
                         var finalList = [];     
                         if(magic.isset(results)) {
-                            finalList.push(results[0]._serverData.number);
+                            finalList.push(Table[0].toJSON().number);
                         }
                     });
         });
@@ -109,7 +111,7 @@ window.magic = (function ($, document, window, Parse) {
         query.equalTo("number", number);
 
         query.find().then(function (Table){
-            var gpList = Table[0]._serverData.groups;
+            var gpList = Table[0].toJSON().groups;
             gpList.push(groupId);
             Table.set("stuff", "asdf");
 
