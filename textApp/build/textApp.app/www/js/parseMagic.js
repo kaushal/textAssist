@@ -28,6 +28,7 @@ window.magic = (function ($, document, window, Parse) {
                 newUser.set("name", myName);
                 newUser.set("contacts", myContacts);
                 newUser.set("groups", []);
+
                 return newUser.save()
                     .then(function(){
                         return true;
@@ -92,14 +93,17 @@ window.magic = (function ($, document, window, Parse) {
                 );
             }
             return Parse.Promise.when(promises)
-                .then(function (Table) {      
-                        var field = Table[0].toJSON();
-                        var finalList = [];     
-                        if(magic.isset(field)) {
-                            finalList.push(field.contacts);
-                        }
+                .then(function (Table) {   
+                    var finalList = [];  
+                    if(!isset(Table)) {
                         return finalList;
-                    });
+                    }   
+                    var field = Table[0].toJSON();   
+                    if(magic.isset(field)) {
+                        finalList.push(field.contacts);
+                    }
+                    return finalList;
+                });
         });
     };
 
@@ -142,6 +146,9 @@ window.magic = (function ($, document, window, Parse) {
                 newGroup.set("number", myNumber);
                 newGroup.set("name", groupName);
                 newGroup.set("target", targetNumber);
+                newGroup.set("members", []);
+                newGroup.set("genChat", []);
+                newGroup.set("targetChat", []);
                 return newGroup.save()
                     .then(function(){
                         for (var i = 0; i < groupNumbers.length; i++) {
@@ -174,6 +181,26 @@ window.magic = (function ($, document, window, Parse) {
      *  string sendType: "group"/"target"
      *  Return: true/false on success
      */
+
+     magic.sendMessageToGroup = function(fromNumber, message, groupId){
+        var GroupTable = Parse.Object.extend("Groups");
+        var query = new Parse.Query(GroupTable);
+
+        query.equalTo("groupId", groupId);
+
+        query.first().then(function (Row) {            //  Found group to add message to
+            if(!magic.isset(Row)) {
+                return;
+            }
+            var messages = Row.toJSON().genChat;    //  users current group ids he belongs to
+            var currentMessage = fromNumber + ": " + message;
+            messages.push(currentMessage);
+            
+            Row.set("genChat", messages);
+            Row.save();
+        });
+
+     };
     magic.sendMessageTo = function (sendType, message, groupId) {
         if (sendType === 'target') {
             //  Send message to target
