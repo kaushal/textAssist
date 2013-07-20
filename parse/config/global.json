@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "Cyrano": {
+            "applicationId": "bGwXAzYa23yIkCfbpHMM6j2CD9iBfvJ1YBdVt9V5", 
+            "masterKey": "O1YF7voZ5GJ53r1vZXD5i1QuTQD7j6jpxq9J7F0a"
+        }, 
+        "_default": {
+            "link": "Cyrano"
+        }
+    }
+}
