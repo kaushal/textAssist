@@ -57,7 +57,6 @@ window.magic = (function ($, document, window, Parse) {
         return query.find().then(function (Table){
             if(magic.isset(Table)){
                 var table = Table[0];
-                console.log(table._serverData.groups);
                 return Table[0]._serverData.groups;
             }
             else
