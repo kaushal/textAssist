@@ -1,14 +1,12 @@
-(function ($, document, window, Parse, magic) {
+(function ($, document, window, magic) {
 	"use strict";
 
 	$(function() {
-		var appId = "bGwXAzYa23yIkCfbpHMM6j2CD9iBfvJ1YBdVt9V5";
-		var javascriptId = "DrmyAyt0zDPOlcraBEGBs6wcgOJvQtfCf3DC67OW";
-
 		var ERROR_LOGIN = "Could not log in";
-		Parse.initialize(appId, javascriptId);
 
+		//	Bindings
 
+		//	Login to the app
 		var login = function() {
 			var number = getMyNumber();
 			var name = getMyName();
@@ -47,4 +45,4 @@
 	});
 
 
-}(window.$, document, window, window.Parse, window.magic));
+}(window.$, document, window, window.magic));

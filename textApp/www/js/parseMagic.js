@@ -3,6 +3,11 @@ window.magic = (function ($, document, window, Parse) {
 
 	var magic = {};
 
+	//	Setup parse
+	var parseAppId = "bGwXAzYa23yIkCfbpHMM6j2CD9iBfvJ1YBdVt9V5";
+	var parseJavascriptId = "DrmyAyt0zDPOlcraBEGBs6wcgOJvQtfCf3DC67OW";
+	Parse.initialize(parseAppId, parseJavascriptId);
+
 	//	Verify login with parse
 	magic.parseLogin = function(myNumber, myName) {
 		//	Returns a promise with success or failure
