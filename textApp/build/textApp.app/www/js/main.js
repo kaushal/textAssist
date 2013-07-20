@@ -77,6 +77,9 @@
 		var goTo = function(page) {
 			curPage = page;
 			if(curPage === "groupPage") {
+				populateGroupsList();
+			}
+			else if(curPage === "makeGroupPage") {
 				populateContactList();
 			}
 			showPage(page);
@@ -98,6 +101,16 @@
 			}
 		};
 
+		//	Populate group list with all your groups
+		var populateGroupsList = function() {
+			var myNumber = getMyNumber();
+			var groups = magic.getMyGroups(myNumber);
+			$('#groupList').empty();
+			for (var i = 0; i < groups.length; i++) {
+				$('#groupList').append('<li><p>'+ groups[i] +'</p></li>');
+			}
+		};
+
 		//	Bind all of the click events
 		var bindButtons = function() {
 			//	Login button on Login Page
@@ -107,8 +120,15 @@
 				getContactsAndLogin(number, name);
 			});
 
-			//	Previous button on chat page
-			$('#chatPrev').click(function() {
+			//	Previous button on group chat page
+			$('#groupChatPrev').click(function() {
+				curPage = "groupPage";
+				goTo("groupPage");
+				return;
+			});
+
+			//	Previous button on target chat page
+			$('#targetChatPrev').click(function() {
 				curPage = "groupPage";
 				goTo("groupPage");
 				return;
@@ -116,8 +136,43 @@
 
 			//	Previous button on group page
 			$('#groupNext').click(function() {
-				curPage = "chatPage";
-				goTo("chatPage");
+				curPage = "groupChatPage";
+				goTo("groupChatPage");
+				return;
+			});
+
+			//	Next button on make group page
+			$('#makeGroupNext').click(function() {
+				curPage = "groupChatPage";
+				goTo("groupChatPage");
+				return;
+			});
+
+			//	Go to make group tab in groups
+			$('#makeGroupGo').click(function() {
+				curPage = "makeGroupPage";
+				goTo("makeGroupPage");
+				return;
+			});
+
+			//	Go to group tab in groups
+			$('#groupGo').click(function() {
+				curPage = "groupPage";
+				goTo("groupPage");
+				return;
+			});
+
+			//	Go to group chat tab in Chats
+			$('#groupChatGo').click(function() {
+				curPage = "groupChatPage";
+				goTo("groupChatPage");
+				return;
+			});
+
+			//	Go to group tab in groups
+			$('#targetChatGo').click(function() {
+				curPage = "targetChatPage";
+				goTo("targetChatPage");
 				return;
 			});
 
@@ -130,8 +185,8 @@
 				var groupName = getGroupName();
 
 				magic.bindGroup(groupName, number, groupMembers, target);
-				curPage = "chatPage";
-				goTo("chatPage");
+				curPage = "groupChatPage";
+				goTo("groupChatPage");
 				return;
 			});
 
