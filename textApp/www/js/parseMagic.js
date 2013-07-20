@@ -87,7 +87,7 @@ window.magic = (function ($, document, window, Parse) {
                 query.equalTo("number", listOfMyFriendsNumbers[i]);
                 query.find().then(function (Table2){
                     if(magic.isset(Table2)) {
-                        finalList.push(Table2[0].number);
+                        finalList.push(Table2[0]._serverData.number);
                     }
                 });
             }
