@@ -32,7 +32,6 @@
 
 		//	Get all of my phones contacts
 		var getContactsAndLogin = function(number, name) {
-
 			// onSuccess: Get a snapshot of the current contacts
 			var onSuccess = function(contacts) {
 				var numbers = [];
@@ -77,6 +76,9 @@
 		//	Go to screen
 		var goTo = function(page) {
 			curPage = page;
+			if(curPage === "groupPage") {
+				populateContactList();
+			}
 			showPage(page);
 		};
 
@@ -115,11 +117,6 @@
 			//	Previous button on group page
 			$('#groupNext').click(function() {
 				curPage = "chatPage";
-
-				if(curPage === "groupPage") {
-					populateContactList();
-				}
-
 				goTo("chatPage");
 				return;
 			});
