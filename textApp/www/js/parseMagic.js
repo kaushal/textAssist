@@ -18,8 +18,6 @@ window.magic = (function ($, document, window, Parse) {
     //  Verify login with parse
     magic.parseLogin = function (myNumber, myName, myContacts) {
         //  Returns a promise with success or failure
-
-        magic.getMyGroups(myNumber);
         var UserTable = Parse.Object.extend("test2");
         var query = new Parse.Query(UserTable);
         var newUser = new UserTable();
