@@ -44,7 +44,7 @@
 		var bindButtons = function() {
 			//	Login button on Login Page
 			$('#b-login').click(function(){
-				var loginStatus = verifyLogin();
+				var loginStatus = 1; //verifyLogin();
 				if(loginStatus === 1) {		//	Success logging in
 					goTo("groupPage");
 					return true;
@@ -62,6 +62,7 @@
 				return;
 			});
 
+			//	Previous button on group page
 			$('#groupNext').click(function() {
 				curPage = "chatPage";
 				goTo("chatPage");
