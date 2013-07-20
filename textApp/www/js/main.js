@@ -20,9 +20,10 @@
 			return $('#targetNumber').val();
 		};
 
-		//	Get a list of contact phone numbers
+		//	Get a list of selected contact phone numbers selected to form group
 		var getGroupMembers = function() {
-			return magic.getMyFriends();
+			//	Select from ui
+			return ["123","234","555"];
 		};
 
 		//	Get the group name
@@ -183,9 +184,8 @@
 				var number = getMyNumber();
 				var name = getMyName();
 				var target = getTargetNumber();
-				var groupMembers = getGroupMembers();
 				var groupName = getGroupName();
-
+				var groupMembers = getGroupMembers();
 				magic.bindGroup(groupName, number, groupMembers, target);
 				curPage = "groupChatPage";
 				goTo("groupChatPage");
