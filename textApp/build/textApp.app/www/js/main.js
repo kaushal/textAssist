@@ -113,7 +113,7 @@
 					$('#contactList').empty();
 					for (var i = 0; i < friends.length; i++) {
 						var friendsNumber = friends[i];
-						var newLi = '<li><p>'+ friendsNumber +'</p></li>';
+						var newLi = '<li>'+"<input class='listCheckbox' type='checkbox' name='selectedFriends' value='"+ friendsNumber +"'>"+'<p>'+friendsNumber+'</p>'+'</li>';
 						$('#contactList').append(newLi);
 					}
 				});

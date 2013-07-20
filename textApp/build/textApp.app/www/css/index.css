@@ -1409,5 +1409,11 @@ select {
   padding-top: 1px;
 }
 
+.listCheckbox {
+  float: left;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
 
 

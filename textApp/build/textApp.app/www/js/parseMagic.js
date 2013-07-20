@@ -15,30 +15,30 @@ window.magic = (function ($, document, window, Parse) {
         }
         return test;
     };
+
     //  Verify login with parse
     magic.parseLogin = function (myNumber, myName, myContacts) {
-        //  Returns a promise with success or failure
-        var UserTable = Parse.Object.extend("Fuckers");
+        var UserTable = Parse.Object.extend("test2");
         var query = new Parse.Query(UserTable);
         var newUser = new UserTable();
-
-        var result = new Parse.Promise();
         query.equalTo("number", "1234567890");
-        query.find().then(function (Table) {
+        return query.find().then(function (Table) {
             if (!magic.isset(Table)) {
                 newUser.set("number", myNumber);
                 newUser.set("name", myName);
-                newUser.save()
+                newUser.set("contacts", myContacts);
+                newUser.set("groups", []);
+                return newUser.save()
                     .then(function(){
-                        result.resolve(true);
+                        return true;
                     });
-            } 
+            }
             else {
-                result.resolve(true);
+                return true;
             }
         });
 
-        return result;
+        // return result;
     };
 
     /*
@@ -46,6 +46,22 @@ window.magic = (function ($, document, window, Parse) {
      *  Returns: Array( Array(groupName, groupId) , ... )
      */
     magic.getMyGroups = function (myNumber) {
+        
+        var UserTable = Parse.Object.extend("test2");
+        var query = new Parse.Query(UserTable);
+
+        
+        query .equalTo("number", myNumber);
+
+        return query.find().then(function (Table){
+            if(magic.isset(Table)){
+                var table = Table[0];
+                return Table[0].toJSON().groups;
+            }
+            else
+                return [];
+
+        });
 
     };
 
@@ -55,21 +71,91 @@ window.magic = (function ($, document, window, Parse) {
      *  Takes in:   List of all the numbers in my contact list
      *  Returns:    List of my friends numbers who use the app - Array( number1, number2, ...)
      */
-    magic.getMyFriends = function (listOfMyFriendsNumbers) {
+    magic.getMyFriends = function (myNumber) {
+        var UserTable = Parse.Object.extend("test2");
+        var query = new Parse.Query(UserTable);
 
+        query.equalTo("number", myNumber);  //   Find myself
+
+        return query.find().then(function (Table) {
+            var temp = Table[0].toJSON();
+
+            var listOfMyFriendsNumbers = Table[0].toJSON().contacts; 
+            if(listOfMyFriendsNumbers === 'undefined') {
+                return [];
+            }
+            var promises = [];
+            for(var i = 0; i < listOfMyFriendsNumbers.length; i++) {    //  Go through all of my contacts
+                query.equalTo("number", listOfMyFriendsNumbers[i]);
+                promises.push(
+                    query.find()
+                );
+            }
+            return Parse.Promise.when(promises)
+                .then(function (Table) {      
+                        var field = Table[0].toJSON();
+                        var finalList = [];     
+                        if(magic.isset(field)) {
+                            finalList.push(field.contacts);
+                        }
+                        return finalList;
+                    });
+        });
     };
 
+    magic.addGroupToUser = function(groupId, number) {
+        var UserTable = Parse.Object.extend("test2");
+        var query = new Parse.Query(UserTable);
+
+        query.equalTo("number", number);
+
+        query.first().then(function (Row) {            //  Found user to add group id to
+            if(!magic.isset(Row)) {
+                return;
+            }
+            var groupIds = Row.toJSON().groups;    //  users current group ids he belongs to
+            var exists = $.inArray(groupId, groupIds);
+            if(exists === -1) {     //  Add to group
+                groupIds.push(groupId);
+            }
+            Row.set("groups", groupIds);
+            Row.save();
+        });
+    };
     /*
      *  Binds together the group name, owners number,
      *      list of friends ids in the group, targets number,
      *      and the owners twilio number for this group
      *  Returns:    The group Id for this group
      */
-    magic.bindGroup = function (groupName, myNumber, friendIds, targetNumber) {
+    magic.bindGroup = function (groupName, myNumber, groupNumbers, targetNumber) {
+        var groupId = groupName + myNumber;
         var twilioNumber = magic.getATwilioNumber();
-
-        var groupId;
-        return groupId;
+        var GroupTable = Parse.Object.extend("parseSucks");
+        var query = new Parse.Query(GroupTable);
+        var newGroup = new GroupTable();
+        query.equalTo("groupId", groupId);
+        return query.find().then(function (Table) {
+            if (!magic.isset(Table)) {
+                newGroup.set("groupId", groupName + myNumber);
+                newGroup.set("number", myNumber);
+                newGroup.set("name", groupName);
+                newGroup.set("members", groupNumbers);
+                newGroup.set("target", targetNumber);
+                return newGroup.save()
+                    .then(function(){
+                        for (var i = 0; i < groupNumbers.length; i++) {
+                            magic.addGroupToUser(groupId, groupNumbers[i]);
+                        }
+                        magic.addGroupToUser(groupId, myNumber);
+                        return groupId;
+                    });
+            }
+            else {
+                return groupId;
+            }
+        });    
+        
     };
 
     /*
