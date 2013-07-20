@@ -56,7 +56,7 @@
 			};
 
 			var onError = function() {
-				console.log("error");
+				window.console.log("error");
 				return false;
 			};
 
@@ -104,11 +104,12 @@
 		//	Populate group list with all your groups
 		var populateGroupsList = function() {
 			var myNumber = getMyNumber();
-			var groups = magic.getMyGroups(myNumber);
-			$('#groupList').empty();
-			for (var i = 0; i < groups.length; i++) {
-				$('#groupList').append('<li><p>'+ groups[i] +'</p></li>');
-			}
+			magic.getMyGroups(myNumber).then(function(groups) {
+				$('#groupList').empty();
+				for (var i = 0; i < groups.length; i++) {
+					$('#groupList').append('<li><p>'+ groups[i] +'</p></li>');
+				}
+			});
 		};
 
 		//	Bind all of the click events

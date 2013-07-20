@@ -15,6 +15,7 @@ window.magic = (function ($, document, window, Parse) {
         }
         return test;
     };
+
     //  Verify login with parse
     magic.parseLogin = function (myNumber, myName, myContacts) {
         //  Returns a promise with success or failure
@@ -22,25 +23,25 @@ window.magic = (function ($, document, window, Parse) {
         var query = new Parse.Query(UserTable);
         var newUser = new UserTable();
 
-        var result = new Parse.Promise();
+        // var result = new Parse.Promise();
         query.equalTo("number", "1234567890");
-        query.find().then(function (Table) {
+        return query.find().then(function (Table) {
             if (!magic.isset(Table)) {
                 newUser.set("number", myNumber);
                 newUser.set("name", myName);
                 newUser.set("contacts", myContacts);
                 newUser.set("groups", []);
-                newUser.save()
+                return newUser.save()
                     .then(function(){
-                        result.resolve(true);
+                        return true;
                     });
             }
             else {
-                result.resolve(true);
+                return true;
             }
         });
 
-        return result;
+        // return result;
     };
 
     /*
@@ -55,7 +56,7 @@ window.magic = (function ($, document, window, Parse) {
         
         query .equalTo("number", myNumber);
 
-        query.find().then(function (Table){
+        return query.find().then(function (Table){
             if(magic.isset(Table)){
                 var table = Table[0];
                 console.log(table._serverData.groups);
@@ -65,6 +66,7 @@ window.magic = (function ($, document, window, Parse) {
                 return [];
 
         });
+
     };
 
 
