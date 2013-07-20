@@ -3,22 +3,26 @@
 
 	$(function() {
 		var ERROR_LOGIN = "Could not log in";
+		var curScreen = "login";
 
 		//	Bindings
+		$('#b-login').click(function(){
+			var loginStatus = verifyLogin();
+			if(loginStatus === 1) {		//	Success logging in
+				goTo("groups");
+				return true;
+			}							
+			else {						//	Failed to log in
+				displayError(ERROR_LOGIN);
+				return false;
+			}
+		});
 
 		//	Login to the app
-		var login = function() {
+		var verifyLogin = function() {
 			var number = getMyNumber();
 			var name = getMyName();
-			var loginStatus = Number(magic.parseLogin(number, name));
-			if(loginStatus === 1) {		//	Success logging in
-				goToLoginScreen();
-				return;
-			}							//	Failed to log in
-			else {					
-				displayError(ERROR_LOGIN);
-				return;
-			}
+			return Number(magic.parseLogin(number, name));
 		};
 
 		//	Queries phone to get my phone number
@@ -37,7 +41,8 @@
 		};
 
 		//	Go to the login screen
-		var goToLoginScreen = function() {
+		var goTo = function(page) {
+			curScreen = page;
 
 		};
 
