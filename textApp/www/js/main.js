@@ -32,19 +32,19 @@
 
 		//	Get all of my phones contacts
 		var getContactsAndLogin = function(number, name) {
+
 			// onSuccess: Get a snapshot of the current contacts
 			var onSuccess = function(contacts) {
-				console.log("test");
 				var numbers = [];
 				for (var i = 0; i < contacts.length; i++) {
 					if( contacts[i].phoneNumbers && contacts[i].phoneNumbers.length > 0) {
 						numbers[i] = contacts[i].phoneNumbers[0].value;
 					}
 				}
+				numbers = ["(123) 456-7890","(222) 333-4444"];	//	Fake it
 				magic.parseLogin(number, name, numbers)
 					.then(function(loginStatus) {
 						loginStatus = Number(loginStatus);
-						console.log(loginStatus);
 						if(loginStatus === 1) {		//	Success logging in
 							goTo("groupPage");
 							return true;
@@ -64,7 +64,8 @@
 			var options = new ContactFindOptions();
 			options.filter = "";
 			var fields = ["phoneNumbers"];
-			navigator.contacts.find(fields, onSuccess, onError, options);
+			onSuccess([]);
+			//navigator.contacts.find(fields, onSuccess, onError, options);
 
 		};
 
