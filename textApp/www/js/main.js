@@ -103,7 +103,8 @@
 
 		//	Populate group list with all your groups
 		var populateGroupsList = function() {
-			var groups = magic.getMyGroups();
+			var myNumber = getMyNumber();
+			var groups = magic.getMyGroups(myNumber);
 			$('#groupList').empty();
 			for (var i = 0; i < groups.length; i++) {
 				$('#groupList').append('<li><p>'+ groups[i] +'</p></li>');
