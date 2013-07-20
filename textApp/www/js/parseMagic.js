@@ -69,7 +69,7 @@ window.magic = (function ($, document, window, Parse) {
 			//	Code here
 
 			//	then send message to group...
-			return sendMessageTo('group', message, groupId);
+			return magic.sendMessageTo('group', message, groupId);
 		}
 		else {
 			//	Send message to group 
