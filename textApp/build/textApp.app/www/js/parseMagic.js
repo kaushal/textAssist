@@ -134,13 +134,13 @@ window.magic = (function ($, document, window, Parse) {
         var GroupTable = Parse.Object.extend("parseSucks");
         var query = new Parse.Query(GroupTable);
         var newGroup = new GroupTable();
+        groupNumbers = magic.isset(groupNumbers) ? groupNumbers : [];
         query.equalTo("groupId", groupId);
         return query.find().then(function (Table) {
             if (!magic.isset(Table)) {
                 newGroup.set("groupId", groupName + myNumber);
                 newGroup.set("number", myNumber);
                 newGroup.set("name", groupName);
-                newGroup.set("members", groupNumbers);
                 newGroup.set("target", targetNumber);
                 return newGroup.save()
                     .then(function(){
