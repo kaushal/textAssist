@@ -43,6 +43,7 @@
 		//	Go to the login screen
 		var goTo = function(page) {
 			curScreen = page;
+			
 
 		};
 
