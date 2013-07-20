@@ -14,7 +14,7 @@
 
 		//	Queries phone to get my phone number
 		var getMyNumber = function() {
-
+			return "1234567890";
 		};
 
 		//	Gets the inputed user name from login screen
@@ -44,8 +44,9 @@
 		var bindButtons = function() {
 			//	Login button on Login Page
 			$('#b-login').click(function(){
-				var loginStatus = 1; //verifyLogin();
+				var loginStatus = verifyLogin();
 				if(loginStatus === 1) {		//	Success logging in
+					//	Store my name
 					goTo("groupPage");
 					return true;
 				}							
@@ -69,7 +70,21 @@
 				return;
 			});
 
-			
+			//	Make button on group page
+			$('#groupMake').click(function() {
+				var number = getMyNumber();
+				var name = getMyName();
+				var target = getTarget();
+				var groupMembers = getGroupMembers();
+				var groupName = getGroupName();
+
+				//magic.bindGroup(groupName, number, groupMembers, target);
+
+				curPage = "chatPage";
+				goTo("chatPage");
+				return;
+			});
+
 		};
 
 
