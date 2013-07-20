@@ -18,12 +18,10 @@ window.magic = (function ($, document, window, Parse) {
 
     //  Verify login with parse
     magic.parseLogin = function (myNumber, myName, myContacts) {
-        //  Returns a promise with success or failure
         var UserTable = Parse.Object.extend("test2");
         var query = new Parse.Query(UserTable);
         var newUser = new UserTable();
 
-        // var result = new Parse.Promise();
         query.equalTo("number", "1234567890");
         return query.find().then(function (Table) {
             if (!magic.isset(Table)) {
