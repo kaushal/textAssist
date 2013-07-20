@@ -41,7 +41,7 @@ window.magic = (function ($, document, window, Parse) {
 	*	Returns:	The group Id for this group
 	*/
 	magic.bindGroup = function(groupName, myNumber, friendIds, targetNumber) {
-		var twilioNumber = getATwilioNumber();
+		var twilioNumber = magic.getATwilioNumber();
 
 		var groupId;
 		return groupId;
