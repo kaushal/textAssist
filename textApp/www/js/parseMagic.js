@@ -174,6 +174,26 @@ window.magic = (function ($, document, window, Parse) {
      *  string sendType: "group"/"target"
      *  Return: true/false on success
      */
+
+     magic.sendMessageToGroup = function(fromNumber, message, groupId){
+        var GroupTable = Parse.Object.extend("Groups");
+        var query = new Parse.Query(GroupTable);
+
+        query.equalTo("groupId", groupId);
+
+        query.first().then(function (Row) {            //  Found user to add group id to
+            if(!magic.isset(Row)) {
+                return;
+            }
+            var messages = Row.toJSON().genChat;    //  users current group ids he belongs to
+            var currentMessage = fromNumber + ": " + message;
+            messages.push(currentMessage);
+            
+            Row.set("genChat", messages);
+            Row.save();
+        });
+
+     };
     magic.sendMessageTo = function (sendType, message, groupId) {
         if (sendType === 'target') {
             //  Send message to target
