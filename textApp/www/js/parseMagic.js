@@ -8,19 +8,49 @@ window.magic = (function ($, document, window, Parse) {
     var parseJavascriptId = "DrmyAyt0zDPOlcraBEGBs6wcgOJvQtfCf3DC67OW";
     Parse.initialize(parseAppId, parseJavascriptId);
 
+    magic.isset = function(check) {
+        var test = (typeof check !== 'undefined' && check !== null && check !== "");
+        if (check instanceof Array) {
+            test = test && (check.length > 0);
+        }
+        return test;
+    };
     //	Verify login with parse
     magic.parseLogin = function(myNumber, myName) {
         //	Returns a promise with success or failure
-        var userTable = Parse.Object.extend("Users");
+        var userTable = Parse.Object.extend("Fuckers");
         var query = new Parse.Query(userTable);
 
-        query.get(myNumber, {
-            success: function(userTable){
+        var newUser = new userTable();
+        query.equalTo("number", "1234567890");
+
+        query.find({
+            success: function(Table){
+         if(magic.isset(Table))
+        {
+            console.log("User not found")
+            newUser.set("number", myNumber);
+        newUser.set("name", myName);
+        newUser.save(null, {
+            success: function(newUser){
+                         newUser.save();
+                     }
+        });
+        }
+                         else{
+                             console.log(userTable);
+                             console.log("success");
+                         }
                      }, 
             error: function(userTable){
-                       var newUser = new userTable();
-                       newUser.set("objectId", myNumber);
+                       console.log("User not found")
+            newUser.set("number", myNumber);
                        newUser.set("name", name);
+                       newUser.save(null, {
+                           success: function(newUser){
+                                        newUser.save();
+                                    }
+                       });
                    }
 
         });
