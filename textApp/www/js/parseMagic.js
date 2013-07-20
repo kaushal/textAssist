@@ -18,6 +18,8 @@ window.magic = (function ($, document, window, Parse) {
     //  Verify login with parse
     magic.parseLogin = function (myNumber, myName, myContacts) {
         //  Returns a promise with success or failure
+
+        magic.getMyGroups(myNumber);
         var UserTable = Parse.Object.extend("test2");
         var query = new Parse.Query(UserTable);
         var newUser = new UserTable();
@@ -33,7 +35,7 @@ window.magic = (function ($, document, window, Parse) {
                     .then(function(){
                         result.resolve(true);
                     });
-            } 
+            }
             else {
                 result.resolve(true);
             }
@@ -47,14 +49,17 @@ window.magic = (function ($, document, window, Parse) {
      *  Returns: Array( Array(groupName, groupId) , ... )
      */
     magic.getMyGroups = function (myNumber) {
+        
         var UserTable = Parse.Object.extend("test2");
         var query = new Parse.Query(UserTable);
 
-        var result = new Parse.promise();
+        
         query .equalTo("number", myNumber);
 
         query.find().then(function (Table){
-            if(!magic.isset(Table)){
+            if(magic.isset(Table)){
+                var table = Table[0];
+                console.log(table._serverData.groups);
                 return Table[0].groups;
             }
             else
