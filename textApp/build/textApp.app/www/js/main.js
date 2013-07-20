@@ -3,20 +3,7 @@
 
 	$(function() {
 		var ERROR_LOGIN = "Could not log in";
-		var curPage = "login";
-
-		//	Bindings
-		$('#b-login').click(function(){
-			var loginStatus = verifyLogin();
-			if(loginStatus === 1) {		//	Success logging in
-				goTo("groups");
-				return true;
-			}							
-			else {						//	Failed to log in
-				displayError(ERROR_LOGIN);
-				return false;
-			}
-		});
+		var curPage = "loginPage";
 
 		//	Login to the app
 		var verifyLogin = function() {
@@ -40,9 +27,10 @@
 			$('#feedback').text(error);
 		};
 
-		//	Go to the login screen
+		//	Go to screen
 		var goTo = function(page) {
 			curPage = page;
+			showPage(page);
 		};
 
 		//	Show the current page
@@ -52,10 +40,41 @@
 			$(pageId).show();
 		};
 
+		//	Bind all of the click events
+		var bindButtons = function() {
+			//	Login button on Login Page
+			$('#b-login').click(function(){
+				var loginStatus = verifyLogin();
+				if(loginStatus === 1) {		//	Success logging in
+					goTo("groupPage");
+					return true;
+				}							
+				else {						//	Failed to log in
+					displayError(ERROR_LOGIN);
+					return false;
+				}
+			});
 
-		//	Start the app - show correct page
+			//	Previous button on chat page
+			$('#chatPrev').click(function() {
+				curPage = "groupPage";
+				goTo("groupPage");
+				return;
+			});
+
+			$('#groupNext').click(function() {
+				curPage = "chatPage";
+				goTo("chatPage");
+				return;
+			});
+
+			
+		};
+
+
+		//	Start the app
+		bindButtons();
 		showPage(curPage);
-
 
 	});
 
