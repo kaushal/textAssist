@@ -32,7 +32,13 @@
 
 		//	Get a list of selected contact phone numbers selected to form group
 		var getSelectedFriends = function() {
-
+			var friends = [];
+			$('#contactList input:checkbox').each(function () {
+				if(this.checked) {
+					friends.push($(this).val());
+				}
+			});
+			return friends;
 		};
 
 		//	Get the group name
@@ -217,6 +223,21 @@
 				curPage = "groupChatPage";
 				goTo("groupChatPage");
 				return;
+			});
+
+			//	Send a message to the group
+			$('#groupChatSend').click(function() {
+				var myNumber = getMyNumber();
+				var message = $('#groupChatMessages').val();
+				var groupId = curGroupId;
+				if(!magic.isset(message) || !magic.isset(myNumber) || !magic.isset(groupId)) {
+					return;
+				}
+				magic.sendMessageToGroup(myNumber, message, groupId);
+			});
+			//	Send a message to the target
+			$('#targetChatSend').click(function() {
+				
 			});
 
 		};
