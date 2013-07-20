@@ -127,7 +127,7 @@ window.magic = (function ($, document, window, Parse) {
     magic.bindGroup = function (groupName, myNumber, groupNumbers, targetNumber) {
         var groupId = groupName + myNumber;
         var twilioNumber = magic.getATwilioNumber();
-        var GroupTable = Parse.Object.extend("groupTest");
+        var GroupTable = Parse.Object.extend("parseSucks");
         var query = new Parse.Query(GroupTable);
         var newGroup = new GroupTable();
         query.equalTo("groupId", groupId);
