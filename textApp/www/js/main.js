@@ -22,8 +22,19 @@
 			return $('#i-name').val();
 		};
 
+		//	Get the targets phone number
 		var getTargetNumber = function() {
 			return $('#targetNumber').val();
+		};
+
+		//	Get a list of contact phone numbers
+		var getGroupMembers = function() {
+			return magic.getMyFriends();
+		};
+
+		//	Get the group name
+		var getGroupName = function() {
+			return $('#groupName').val();
 		};
 
 		//	Display error message
@@ -42,6 +53,15 @@
 			$('.page').hide();
 			var pageId = '#'+page;
 			$(pageId).show();
+		};
+
+		//	Populate contact list with friends who have the app
+		var populateContactList = function() {
+			var friends = magic.getMyFriends();
+			$('#contactList').empty();
+			for (var i = 0; i < friends.length; i++) {
+				$('#contactList').append('<li><p>'+ friends[i] +'</p></li>');
+			}
 		};
 
 		//	Bind all of the click events
@@ -70,6 +90,11 @@
 			//	Previous button on group page
 			$('#groupNext').click(function() {
 				curPage = "chatPage";
+
+				if(curPage === "groupPage") {
+					populateContactList();
+				}
+
 				goTo("chatPage");
 				return;
 			});
@@ -78,12 +103,11 @@
 			$('#groupMake').click(function() {
 				var number = getMyNumber();
 				var name = getMyName();
-				var target = getTarget();
+				var target = getTargetNumber();
 				var groupMembers = getGroupMembers();
 				var groupName = getGroupName();
 
-				//magic.bindGroup(groupName, number, groupMembers, target);
-
+				magic.bindGroup(groupName, number, groupMembers, target);
 				curPage = "chatPage";
 				goTo("chatPage");
 				return;
