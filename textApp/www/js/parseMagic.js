@@ -31,6 +31,7 @@ window.magic = (function ($, document, window, Parse) {
                 newUser.set("number", myNumber);
                 newUser.set("name", myName);
                 newUser.set("contacts", myContacts);
+                newUser.set("groups", []);
                 newUser.save()
                     .then(function(){
                         result.resolve(true);
@@ -60,7 +61,7 @@ window.magic = (function ($, document, window, Parse) {
             if(magic.isset(Table)){
                 var table = Table[0];
                 console.log(table._serverData.groups);
-                return Table[0].groups;
+                return Table[0]._serverData.groups;
             }
             else
                 return [];
