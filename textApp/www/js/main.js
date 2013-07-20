@@ -31,28 +31,40 @@
 		};
 
 		//	Get all of my phones contacts
-		var getAllContacts = function() {
+		var getContactsAndLogin = function(number, name) {
 			// onSuccess: Get a snapshot of the current contacts
 			var onSuccess = function(contacts) {
-				window.console.log(JSON.stringify(contacts));
+				console.log("test");
 				var numbers = [];
 				for (var i = 0; i < contacts.length; i++) {
 					if( contacts[i].phoneNumbers && contacts[i].phoneNumbers.length > 0) {
 						numbers[i] = contacts[i].phoneNumbers[0].value;
 					}
 				}
-				return numbers;
+				magic.parseLogin(number, name, numbers)
+					.then(function(loginStatus) {
+						loginStatus = Number(loginStatus);
+						console.log(loginStatus);
+						if(loginStatus === 1) {		//	Success logging in
+							goTo("groupPage");
+							return true;
+						}							
+						else {						//	Failed to log in
+							displayError(ERROR_LOGIN);
+							return false;
+						}
+				});
 			};
 
-			// onError: Failed to get the contacts
-			var onError = function(contactError) {
-				return [];
+			var onError = function() {
+				console.log("error");
+				return false;
 			};
 
 			var options = new ContactFindOptions();
 			options.filter = "";
 			var fields = ["phoneNumbers"];
-			return navigator.contacts.find(fields, onSuccess, onError, options);
+			navigator.contacts.find(fields, onSuccess, onError, options);
 
 		};
 
@@ -87,24 +99,9 @@
 		var bindButtons = function() {
 			//	Login button on Login Page
 			$('#b-login').click(function() {
-				getAllContacts();
 				var number = getMyNumber();
 				var name = getMyName();
-				getAllContacts().then(function(contacts){
-					magic.parseLogin(number, name, contacts)
-						.then(function(loginStatus) {
-							loginStatus = Number(loginStatus);
-							if(loginStatus === 1) {		//	Success logging in
-								//	Store my name
-								goTo("groupPage");
-								return true;
-							}							
-							else {						//	Failed to log in
-								displayError(ERROR_LOGIN);
-								return false;
-							}
-						});
-					});
+				getContactsAndLogin(number, name);
 			});
 
 			//	Previous button on chat page
