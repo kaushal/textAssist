@@ -4,6 +4,7 @@
 	$(function() {
 		var ERROR_LOGIN = "Could not log in";
 		var curPage = "loginPage";
+		var curGroupId = null;
 
 		//	Queries phone to get my phone number
 		var getMyNumber = function() {
@@ -91,6 +92,9 @@
 			else if(curPage === "makeGroupPage") {
 				populateContactList();
 			}
+			else if(curPage === "groupChatPage") {
+				// populateMessages();
+			}
 			showPage(page);
 		};
 
@@ -125,7 +129,14 @@
 			magic.getMyGroups(myNumber).then(function(groups) {
 				$('#groupList').empty();
 				for (var i = 0; i < groups.length; i++) {
-					$('#groupList').append('<li><p>'+ groups[i] +'</p></li>');
+					var groupId = groups[i];
+					$('#groupList').append("<li class='groupListItem' id='"+ groupId +"'><a>" + groupId + "<span class='chevron'></span></a></li>");
+					$('.groupListItem').click(function() {
+						var groupId = this.id;
+						curPage = "groupChatPage";
+						curGroupId = groupId;
+						goTo("groupChatPage");
+					});
 				}
 			});
 		};
