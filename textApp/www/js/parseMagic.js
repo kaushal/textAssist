@@ -18,45 +18,27 @@ window.magic = (function ($, document, window, Parse) {
     //  Verify login with parse
     magic.parseLogin = function (myNumber, myName) {
         //  Returns a promise with success or failure
-        var userTable = Parse.Object.extend("Fuckers");
-        var query = new Parse.Query(userTable);
+        var UserTable = Parse.Object.extend("Fuckers");
+        var query = new Parse.Query(UserTable);
+        var newUser = new UserTable();
 
-        var newUser = new userTable();
+        var result = new Parse.Promise();
         query.equalTo("number", "1234567890");
-
-        query.find({
-            success: function (Table) {
-                if (!magic.isset(Table)) {
-                    console.log(Table);
-                    console.dir(query);
-                    console.log("User not found");
-                    newUser.set("number", myNumber);
-                    newUser.set("name", myName);
-                    newUser.save(null, {
-                        success: function (newUser) {
-                            newUser.save();
-
-                        },
-                        error: function(){
-                            return false;      
-                        }
+        query.find().then(function (Table) {
+            if (!magic.isset(Table)) {
+                newUser.set("number", myNumber);
+                newUser.set("name", myName);
+                newUser.save()
+                    .then(function(){
+                        result.resolve(true);
                     });
-                } else {
-                    for (var i = 0; i < Table.length; i++) {
-                        console.log(Table[i])
-                    }
-                    console.log(userTable);
-                    console.log("success");
-                }
-                return true;
-            },
-            error: function (userTable) {
-                return false;
+            } 
+            else {
+                result.resolve(true);
             }
-
         });
-        var promise;
-        return promise;
+
+        return result;
     };
 
     /*

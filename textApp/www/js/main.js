@@ -5,15 +5,6 @@
 		var ERROR_LOGIN = "Could not log in";
 		var curPage = "loginPage";
 
-		//	Login to the app
-		var verifyLogin = function() {
-			var number = getMyNumber();
-			var name = getMyName();
-			var loginStatus = magic.parseLogin(number, name);
-
-			return Number();
-		};
-
 		//	Queries phone to get my phone number
 		var getMyNumber = function() {
 			return "1234567890";
@@ -70,16 +61,21 @@
 		var bindButtons = function() {
 			//	Login button on Login Page
 			$('#b-login').click(function(){
-				var loginStatus = verifyLogin();
-				if(loginStatus === 1) {		//	Success logging in
-					//	Store my name
-					goTo("groupPage");
-					return true;
-				}							
-				else {						//	Failed to log in
-					displayError(ERROR_LOGIN);
-					return false;
-				}
+				var number = getMyNumber();
+				var name = getMyName();
+				magic.parseLogin(number, name)
+					.then(function(loginStatus) {
+						loginStatus = Number(loginStatus);
+						if(loginStatus === 1) {		//	Success logging in
+							//	Store my name
+							goTo("groupPage");
+							return true;
+						}							
+						else {						//	Failed to log in
+							displayError(ERROR_LOGIN);
+							return false;
+						}
+					});
 			});
 
 			//	Previous button on chat page
