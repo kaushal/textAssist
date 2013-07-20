@@ -32,28 +32,27 @@
 
 		//	Get all of my phones contacts
 		var getAllContacts = function() {
-
 			// onSuccess: Get a snapshot of the current contacts
 			var onSuccess = function(contacts) {
 				window.console.log(JSON.stringify(contacts));
+				var numbers = [];
 				for (var i = 0; i < contacts.length; i++) {
-					console.log(contacts.length);
-					var number = [];
 					if( contacts[i].phoneNumbers && contacts[i].phoneNumbers.length > 0) {
-						number[] = contacts[i].phoneNumbers[0].value;
+						numbers[i] = contacts[i].phoneNumbers[0].value;
 					}
 				}
+				return numbers;
 			};
 
 			// onError: Failed to get the contacts
 			var onError = function(contactError) {
-				window.console.log('onError!');
+				return [];
 			};
 
 			var options = new ContactFindOptions();
 			options.filter = "";
-			var fields = ["phoneNumbers", "displayName"];
-			navigator.contacts.find(fields, onSuccess, onError, options);
+			var fields = ["phoneNumbers"];
+			return navigator.contacts.find(fields, onSuccess, onError, options);
 
 		};
 
@@ -91,18 +90,20 @@
 				getAllContacts();
 				var number = getMyNumber();
 				var name = getMyName();
-				magic.parseLogin(number, name)
-					.then(function(loginStatus) {
-						loginStatus = Number(loginStatus);
-						if(loginStatus === 1) {		//	Success logging in
-							//	Store my name
-							goTo("groupPage");
-							return true;
-						}							
-						else {						//	Failed to log in
-							displayError(ERROR_LOGIN);
-							return false;
-						}
+				getAllContacts().then(function(contacts){
+					magic.parseLogin(number, name, contacts)
+						.then(function(loginStatus) {
+							loginStatus = Number(loginStatus);
+							if(loginStatus === 1) {		//	Success logging in
+								//	Store my name
+								goTo("groupPage");
+								return true;
+							}							
+							else {						//	Failed to log in
+								displayError(ERROR_LOGIN);
+								return false;
+							}
+						});
 					});
 			});
 
