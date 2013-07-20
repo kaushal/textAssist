@@ -30,6 +30,33 @@
 			return $('#groupName').val();
 		};
 
+		//	Get all of my phones contacts
+		var getAllContacts = function() {
+
+			// onSuccess: Get a snapshot of the current contacts
+			var onSuccess = function(contacts) {
+				window.console.log(JSON.stringify(contacts));
+				for (var i = 0; i < contacts.length; i++) {
+					console.log(contacts.length);
+					var number = [];
+					if( contacts[i].phoneNumbers && contacts[i].phoneNumbers.length > 0) {
+						number[] = contacts[i].phoneNumbers[0].value;
+					}
+				}
+			};
+
+			// onError: Failed to get the contacts
+			var onError = function(contactError) {
+				window.console.log('onError!');
+			};
+
+			var options = new ContactFindOptions();
+			options.filter = "";
+			var fields = ["phoneNumbers", "displayName"];
+			navigator.contacts.find(fields, onSuccess, onError, options);
+
+		};
+
 		//	Display error message
 		var displayError = function(error) {
 			$('#feedback').text(error);
@@ -60,7 +87,8 @@
 		//	Bind all of the click events
 		var bindButtons = function() {
 			//	Login button on Login Page
-			$('#b-login').click(function(){
+			$('#b-login').click(function() {
+				getAllContacts();
 				var number = getMyNumber();
 				var name = getMyName();
 				magic.parseLogin(number, name)
@@ -117,7 +145,6 @@
 		//	Start the app
 		bindButtons();
 		showPage(curPage);
-
 	});
 
 
