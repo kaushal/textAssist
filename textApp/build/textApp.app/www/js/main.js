@@ -77,6 +77,9 @@
 		var goTo = function(page) {
 			curPage = page;
 			if(curPage === "groupPage") {
+				populateGroupsList();
+			}
+			else if(curPage === "makeGroupPage") {
 				populateContactList();
 			}
 			showPage(page);
@@ -95,6 +98,15 @@
 			$('#contactList').empty();
 			for (var i = 0; i < friends.length; i++) {
 				$('#contactList').append('<li><p>'+ friends[i] +'</p></li>');
+			}
+		};
+
+		//	Populate group list with all your groups
+		var populateGroupsList = function() {
+			var groups = magic.getMyGroups();
+			$('#groupList').empty();
+			for (var i = 0; i < groups.length; i++) {
+				$('#groupList').append('<li><p>'+ groups[i] +'</p></li>');
 			}
 		};
 
