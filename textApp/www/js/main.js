@@ -121,6 +121,13 @@
 				return;
 			});
 
+			//	Previous button on group page
+			$('#groupNext').click(function() {
+				curPage = "chatPage";
+				goTo("chatPage");
+				return;
+			});
+
 			//	Make button on group page
 			$('#groupMake').click(function() {
 				var number = getMyNumber();
