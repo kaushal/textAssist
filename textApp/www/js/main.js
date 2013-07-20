@@ -9,7 +9,9 @@
 		var verifyLogin = function() {
 			var number = getMyNumber();
 			var name = getMyName();
-			return Number(magic.parseLogin(number, name));
+			var loginStatus = magic.parseLogin(number, name);
+
+			return Number();
 		};
 
 		//	Queries phone to get my phone number
