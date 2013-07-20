@@ -21,7 +21,7 @@ window.magic = (function ($, document, window, Parse) {
         var UserTable = Parse.Object.extend("test2");
         var query = new Parse.Query(UserTable);
         var newUser = new UserTable();
-
+        magic.addGroupToUser("1234567890", "newGPID");
         query.equalTo("number", "1234567890");
         return query.find().then(function (Table) {
             if (!magic.isset(Table)) {
@@ -96,6 +96,23 @@ window.magic = (function ($, document, window, Parse) {
         return finalList;
     };
 
+    magic.addGroupToUser = function(groupId, number) {
+        console.log("trying some vudu shit");
+        var UserTable = Parse.Object.extend("test2");
+        var query = new Parse.Query(UserTable);
+
+        query.equalTo("number", number);
+
+        query.find().then(function (Table){
+            var gpList = Table[0]._serverData.groups;
+            gpList.push(groupId);
+            Table.set("stuff", "asdf");
+
+            Table.saveInBackground();
+            Table.save();
+
+        });
+    };
     /*
      *  Binds together the group name, owners number,
      *      list of friends ids in the group, targets number,
@@ -103,10 +120,33 @@ window.magic = (function ($, document, window, Parse) {
      *  Returns:    The group Id for this group
      */
     magic.bindGroup = function (groupName, myNumber, friendIds, targetNumber) {
+        var groupId = groupName + myNumber;
         var twilioNumber = magic.getATwilioNumber();
+        var GroupTable = Parse.Object.extend("groupTest");
+        var query = new Parse.Query(GroupTable);
+        var newGroup = new GroupTable();
 
-        var groupId;
-        return groupId;
+        query.equalTo("number", myNumber);
+        return query.find().then(function (Table) {
+            if (!magic.isset(Table)) {
+                newGroup.set("groupId", groupName + myNumber);
+                newGroup.set("number", myNumber);
+                newGroup.set("name", groupName);
+                newGroup.set("members", friendIds);
+                newGroup.set("target", targetNumber);
+                return newGroup.save()
+                    .then(function(){
+                        return groupId;
+                    });
+            }
+            else {
+                return groupId;
+            }
+        });
+
+
+        
+        
     };
 
     /*
