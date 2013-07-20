@@ -1,4 +1,4 @@
-(function ($, document, window, Parse) {
+(function ($, document, window, Parse, magic) {
 	"use strict";
 
 	$(function() {
@@ -12,7 +12,7 @@
 		var login = function() {
 			var number = getMyNumber();
 			var name = getMyName();
-			var loginStatus = Number(parseLogin(number, name));
+			var loginStatus = Number(magic.parseLogin(number, name));
 			if(loginStatus === 1) {		//	Success logging in
 				goToLoginScreen();
 				return;
@@ -40,11 +40,11 @@
 
 		//	Go to the login screen
 		var goToLoginScreen = function() {
-			
+
 		};
 
 
 	});
 
 
-}(window.$, document, window, window.Parse));
+}(window.$, document, window, window.Parse, window.magic));
