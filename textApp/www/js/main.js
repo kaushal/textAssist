@@ -20,10 +20,18 @@
 			return $('#targetNumber').val();
 		};
 
+		//	Get a list of all of my friends who use the app
+		var getFriends = function() {
+			var myNumber = getMyNumber();
+			return magic.getMyFriends(myNumber)
+				.then(function(friends) {
+					return friends;
+				});
+		};
+
 		//	Get a list of selected contact phone numbers selected to form group
-		var getGroupMembers = function() {
-			//	Select from ui
-			return ["123","234","555"];
+		var getSelectedFriends = function() {
+
 		};
 
 		//	Get the group name
@@ -96,11 +104,19 @@
 		//	Populate contact list with friends who have the app
 		var populateContactList = function() {
 			var myNumber = getMyNumber();
-			var friends = magic.getMyFriends(myNumber);
-			$('#contactList').empty();
-			for (var i = 0; i < friends.length; i++) {
-				$('#contactList').append('<li><p>'+ friends[i] +'</p></li>');
-			}
+			magic.getMyFriends(myNumber)
+				.then(function(friendsObj) {
+					if(!magic.isset(friendsObj)) {
+						return;
+					}
+					var friends = friendsObj[0];
+					$('#contactList').empty();
+					for (var i = 0; i < friends.length; i++) {
+						var friendsNumber = friends[i];
+						var newLi = '<li><p>'+ friendsNumber +'</p></li>';
+						$('#contactList').append(newLi);
+					}
+				});
 		};
 
 		//	Populate group list with all your groups
@@ -185,7 +201,7 @@
 				var name = getMyName();
 				var target = getTargetNumber();
 				var groupName = getGroupName();
-				var groupMembers = getGroupMembers();
+				var groupMembers = getSelectedFriends();
 				magic.bindGroup(groupName, number, groupMembers, target);
 				curPage = "groupChatPage";
 				goTo("groupChatPage");

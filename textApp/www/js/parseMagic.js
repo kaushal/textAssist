@@ -96,8 +96,9 @@ window.magic = (function ($, document, window, Parse) {
                         var field = Table[0].toJSON();
                         var finalList = [];     
                         if(magic.isset(field)) {
-                            finalList.push(field.number);
+                            finalList.push(field.contacts);
                         }
+                        return finalList;
                     });
         });
     };
@@ -108,14 +109,17 @@ window.magic = (function ($, document, window, Parse) {
 
         query.equalTo("number", number);
 
-        query.find().then(function (Table) {            //  Found user to add group id to
-            var groupIds = Table[0].toJSON().groups;    //  users current group ids he belongs to
+        query.first().then(function (Row) {            //  Found user to add group id to
+            if(!magic.isset(Row)) {
+                return;
+            }
+            var groupIds = Row.toJSON().groups;    //  users current group ids he belongs to
             var exists = $.inArray(groupId, groupIds);
             if(exists === -1) {     //  Add to group
                 groupIds.push(groupId);
             }
-            Table.set("groups", groupIds);
-            Table.save();
+            Row.set("groups", groupIds);
+            Row.save();
         });
     };
     /*
