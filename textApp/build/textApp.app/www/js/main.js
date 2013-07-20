@@ -22,6 +22,10 @@
 			return $('#i-name').val();
 		};
 
+		var getTargetNumber = function() {
+			return $('#targetNumber').val();
+		};
+
 		//	Display error message
 		var displayError = function(error) {
 			$('#feedback').text(error);
