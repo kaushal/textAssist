@@ -10,6 +10,7 @@
 		var login = function() {
 			var number = getMyNumber();
 			var name = getMyName();
+			var loginStatus = parseLogin(number, name);
 		};
 
 		//	Queries phone to get my phone number
