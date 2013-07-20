@@ -40,10 +40,10 @@
         </div>
         <!-- Login Page End -->
 
-        <!-- Chat Page Begin-->
-        <div id="chatPage" class="page">
+        <!-- Group Chat Page Begin-->
+        <div id="groupChatPage" class="page">
             <header class="bar-title">
-                <a class="button-prev" id="chatPrev">Groups</a>
+                <a class="button-prev" id="groupChatPrev">Groups</a>
                 <h1 class="title">Text Assist</h1>
             </header>
             <nav class="bar-standard bar-header-secondary">
@@ -53,31 +53,60 @@
                       <a>Group chat</a>
                     </li>
                     <li>
-                        <a>Target chat</a>
+                        <a id="targetChatGo">Target chat</a>
                     </li>
                 </ul>
             </nav>
             <nav class="bar-footer">
                 <form>
-                    <input class="message" type="text" placeholder="Message">
-                    <a class="button-positive button-block button-send">Send</a>
+                    <input id="groupChatMessages" class="message" type="text" placeholder="Message">
+                    <a id="groupChatSend" class="button-positive button-block button-send">Send</a>
                 </form>
                 
             </nav>
             <div class="content">
             </div>
         </div>
-        <!-- Chat Page End -->
+        <!-- Group Chat Page End -->
+
+        <!-- Target Chat Page Begin-->
+        <div id="targetChatPage" class="page">
+            <header class="bar-title">
+                <a class="button-prev" id="targetChatPrev">Groups</a>
+                <h1 class="title">Text Assist</h1>
+            </header>
+            <nav class="bar-standard bar-header-secondary">
+                <!-- Segmented controller in standard bar fixed to top -->
+                <ul class="segmented-controller">
+                    <li>
+                      <a id="groupChatGo">Group chat</a>
+                    </li>
+                    <li class="active">
+                        <a>Target chat</a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="bar-footer">
+                <form>
+                    <input id="targetChatMessages" class="message" type="text" placeholder="Message">
+                    <a id="targetChatSend" class="button-positive button-block button-send">Send</a>
+                </form>
+                
+            </nav>
+            <div class="content">
+            </div>
+        </div>
+        <!-- Target Chat Page End -->
 
         <!-- Groups Page Begin-->
-        <div id="makeGroupPage" class="page">
+        <div id="groupPage" class="page">
             <header class="bar-title">
                 <ul class="segmented-controller">
                     <li class="active">
                         <a>Groups</a>
                     </li>
                     <li>
-                        <a>Make Group</a>
+                        <a id="makeGroupGo">Make Group</a>
                     </li>
                 </ul>
                 <a class="button-next" id="groupNext">Chat</a>
@@ -85,23 +114,23 @@
             <nav class="bar-footer">
             </nav>
             <div class="content">
-                <ul class="list" id="contactList">
+                <ul class="list" id="groupList">
                 </ul>
             </div>
         </div>
         <!-- Groups Page End -->
         <!-- Make Group Page Begin-->
-        <div id="groupPage" class="page">
+        <div id="makeGroupPage" class="page">
             <header class="bar-title">
                 <ul class="segmented-controller">
                     <li>
-                        <a>Groups</a>
+                        <a id="groupGo">Groups</a>
                     </li>
                     <li class="active">
                         <a>Make Group</a>
                     </li>
                 </ul>
-                <a class="button-next" id="groupNext">Chat</a>
+                <a class="button-next" id="makeGroupNext">Chat</a>
             </header>
             <div class="bar-standard bar-header-secondary target-text">
                 <form>

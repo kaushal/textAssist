@@ -107,8 +107,15 @@
 				getContactsAndLogin(number, name);
 			});
 
-			//	Previous button on chat page
-			$('#chatPrev').click(function() {
+			//	Previous button on group chat page
+			$('#groupChatPrev').click(function() {
+				curPage = "groupPage";
+				goTo("groupPage");
+				return;
+			});
+
+			//	Previous button on target chat page
+			$('#targetChatPrev').click(function() {
 				curPage = "groupPage";
 				goTo("groupPage");
 				return;
@@ -116,15 +123,43 @@
 
 			//	Previous button on group page
 			$('#groupNext').click(function() {
-				curPage = "chatPage";
-				goTo("chatPage");
+				curPage = "groupChatPage";
+				goTo("groupChatPage");
 				return;
 			});
 
-			//	Previous button on group page
-			$('#groupNext').click(function() {
-				curPage = "chatPage";
-				goTo("chatPage");
+			//	Next button on make group page
+			$('#makeGroupNext').click(function() {
+				curPage = "groupChatPage";
+				goTo("groupChatPage");
+				return;
+			});
+
+			//	Go to make group tab in groups
+			$('#makeGroupGo').click(function() {
+				curPage = "makeGroupPage";
+				goTo("makeGroupPage");
+				return;
+			});
+
+			//	Go to group tab in groups
+			$('#groupGo').click(function() {
+				curPage = "groupPage";
+				goTo("groupPage");
+				return;
+			});
+
+			//	Go to group chat tab in Chats
+			$('#groupChatGo').click(function() {
+				curPage = "groupChatPage";
+				goTo("groupChatPage");
+				return;
+			});
+
+			//	Go to group tab in groups
+			$('#targetChatGo').click(function() {
+				curPage = "targetChatPage";
+				goTo("targetChatPage");
 				return;
 			});
 
@@ -137,8 +172,8 @@
 				var groupName = getGroupName();
 
 				magic.bindGroup(groupName, number, groupMembers, target);
-				curPage = "chatPage";
-				goTo("chatPage");
+				curPage = "groupChatPage";
+				goTo("groupChatPage");
 				return;
 			});
 
