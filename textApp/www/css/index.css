@@ -1412,7 +1412,7 @@ select {
 .listCheckbox {
   float: left;
   margin-right: 40px;
-  margin-left: 40px;
+  margin-left: 15px;
 }
 
 
