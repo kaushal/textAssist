@@ -46,7 +46,20 @@ window.magic = (function ($, document, window, Parse) {
      *  Returns: Array( Array(groupName, groupId) , ... )
      */
     magic.getMyGroups = function (myNumber) {
+        var UserTable = Parse.Object.extend("Fuckers");
+        var query = new Parse.Query(UserTable);
 
+        var result = new Parse.promise();
+        query .equalTo("number", myNumber);
+
+        query.find().then(function (Table){
+            if(!magic.isset(Table)){
+                return Table[0].groups;
+            }
+            else
+                return [];
+
+        });
     };
 
 
@@ -56,7 +69,24 @@ window.magic = (function ($, document, window, Parse) {
      *  Returns:    List of my friends numbers who use the app - Array( number1, number2, ...)
      */
     magic.getMyFriends = function (listOfMyFriendsNumbers) {
+        var finalList = [];
+        for(var i = 0; i > listOfMyFriendsNumbers.length; i++){
+            var UserTable = Parse.Object.extend("Fuckers");
+            var query = new Parse.Query(UserTable);
+        
+            query.equalTo("number", listOfMyFriendsNumbers[i]);
 
+            query.find().then(function (Table){
+                if(!magic.isset(Table)){
+                    finalList.push(Table[0].number);
+                }
+
+            });
+            
+
+        }
+
+        return finalList;
     };
 
     /*
