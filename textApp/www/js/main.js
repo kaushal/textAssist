@@ -270,6 +270,7 @@
 					return;
 				}
 				magic.sendMessageTo("group", myNumber, message, groupId);
+				$('#groupChatMessages').val('');
 			});
 			//	Send a message to the target
 			$('#targetChatSend').click(function() {
@@ -280,6 +281,7 @@
 					return;
 				}
 				magic.sendMessageTo("target", myNumber, message, groupId);
+				$('#targetChatMessages').val('');
 				
 			});
 
