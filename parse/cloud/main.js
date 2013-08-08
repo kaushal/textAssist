@@ -21,7 +21,7 @@ Parse.Cloud.define("hello", function(request, response) {
 	on whether or not the girl exists in the database, and is already texting one of these numbers.
 */
 Parse.Cloud.define("receiveSMS", function(request, response) {
-
+    console.log(request.params.Body);
     console.log("Received a new text: " + request.params.From);
     response.success();
 });
