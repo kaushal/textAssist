@@ -60,7 +60,7 @@ Parse.Cloud.define("sendMessage", function(request, response) {
   
 
   twilio.sendSMS({
-    From: "7324973029",
+    From: "7324973029", //  Our twilio number
     To: request.params.number,
     Body: request.params.body
   }, {
