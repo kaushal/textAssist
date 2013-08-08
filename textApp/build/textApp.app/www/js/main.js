@@ -285,6 +285,29 @@
 				
 			});
 
+			//	On enter key pressed, trigger send
+
+			$('#i-name').keydown(function(event) {    
+				if(event.keyCode == 13) {
+					$('#b-login').trigger('click');
+					return false;
+				}
+			});
+
+			$('#groupChatMessages').keydown(function(event) {    
+				if(event.keyCode == 13) {
+					$('#groupChatSend').trigger('click');
+					return false;
+				}
+			});
+
+			$('#targetChatMessages').keydown(function(event) {    
+				if(event.keyCode == 13) {
+					$('#targetChatSend').trigger('click');
+					return false;
+				}
+			});
+
 		};
 
 
