@@ -21,9 +21,29 @@ Parse.Cloud.define("hello", function(request, response) {
 	on whether or not the girl exists in the database, and is already texting one of these numbers.
 */
 Parse.Cloud.define("receiveSMS", function(request, response) {
-    console.log(request.params.Body);
-    console.log("Received a new text: " + request.params.From);
-    response.success();
+
+
+  var GroupTable = Parse.Object.extend("Groups");
+  var query = new Parse.Query(GroupTable);
+
+  var targetParam = request.params.From;
+  query.equalTo("target", targetParam);          //  Found my group    
+
+  return query.first().then(function (Row) {          //  Return User groups messages promise
+      if(Row) {
+        var messages = Row.toJSON().targetChat;    //  Messages for that group
+        var newMessage = request.params.Body;
+        var currentMessage = targetParam + ": " + newMessage;
+        messages.push(currentMessage);
+        
+        Row.set("targetChat", messages);
+        Row.save();
+      }
+  });
+
+  console.log(request.params.Body);
+  console.log("Received a new text: " + request.params.From);
+  response.success();
 });
 
 
