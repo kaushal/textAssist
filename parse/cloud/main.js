@@ -42,7 +42,7 @@ Parse.Cloud.define("sendMessage", function(request, response) {
   twilio.sendSMS({
     From: "7324973029",
     To: request.params.number,
-    Body: "Yo gurl you a ho!"
+    Body: request.params.body
   }, {
     success: function(httpResponse) { response.success("SMS sent!"); },
     error: function(httpResponse) { response.error("Uh oh, something went wrong"); }
