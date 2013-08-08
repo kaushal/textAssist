@@ -18,7 +18,7 @@ window.magic = (function ($, document, window, Parse) {
 
     //  Verify login with parse
     magic.parseLogin = function (myNumber, myName, myContacts) {
-        var UserTable = Parse.Object.extend("test2");
+        var UserTable = Parse.Object.extend("Users");
         var query = new Parse.Query(UserTable);
         var newUser = new UserTable();
         query.equalTo("number", "1234567890");
@@ -48,7 +48,7 @@ window.magic = (function ($, document, window, Parse) {
      */
     magic.getMyGroups = function (myNumber) {
         
-        var UserTable = Parse.Object.extend("test2");
+        var UserTable = Parse.Object.extend("Users");
         var query = new Parse.Query(UserTable);
 
         
@@ -73,7 +73,7 @@ window.magic = (function ($, document, window, Parse) {
      *  Returns:    List of my friends numbers who use the app - Array( number1, number2, ...)
      */
     magic.getMyFriends = function (myNumber) {
-        var UserTable = Parse.Object.extend("test2");
+        var UserTable = Parse.Object.extend("Users");
         var query = new Parse.Query(UserTable);
 
         query.equalTo("number", myNumber);  //   Find myself
@@ -108,7 +108,7 @@ window.magic = (function ($, document, window, Parse) {
     };
 
     magic.addGroupToUser = function(groupId, number) {
-        var UserTable = Parse.Object.extend("test2");
+        var UserTable = Parse.Object.extend("Users");
         var query = new Parse.Query(UserTable);
 
         query.equalTo("number", number);
@@ -135,7 +135,7 @@ window.magic = (function ($, document, window, Parse) {
     magic.bindGroup = function (groupName, myNumber, groupNumbers, targetNumber) {
         var groupId = groupName + myNumber;
         var twilioNumber = magic.getATwilioNumber();
-        var GroupTable = Parse.Object.extend("parseSucks");
+        var GroupTable = Parse.Object.extend("Groups");
         var query = new Parse.Query(GroupTable);
         var newGroup = new GroupTable();
         groupNumbers = magic.isset(groupNumbers) ? groupNumbers : [];
