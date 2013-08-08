@@ -210,8 +210,8 @@ window.magic = (function ($, document, window, Parse) {
                 return;
             }
             var messages = Row.toJSON().targetChat;    //  users current group ids he belongs to
-            var number = Row.toJSON().number; 
-            if(number !== fromNumber) { //  check to see if from number is the owner of the group
+            var ownerNumber = Row.toJSON().number; 
+            if(ownerNumber !== fromNumber) { //  check to see if from number is the owner of the group
                 return; //  Not the owner, not allowed to post to target
             }
 
