@@ -147,6 +147,15 @@
 			});
 		};
 
+		//	Poll for chat data
+		var pollForChatData = function() {
+			var groupMessages = magic.getGroupMessages();
+			var targetMessages = magic.getTargetMessages();
+
+			
+
+		};
+
 		//	Bind all of the click events
 		var bindButtons = function() {
 			//	Login button on Login Page
@@ -233,10 +242,17 @@
 				if(!magic.isset(message) || !magic.isset(myNumber) || !magic.isset(groupId)) {
 					return;
 				}
-				magic.sendMessageToGroup(myNumber, message, groupId);
+				magic.sendMessageTo("group", myNumber, message, groupId);
 			});
 			//	Send a message to the target
 			$('#targetChatSend').click(function() {
+				var myNumber = getMyNumber();
+				var message = $('#targetChatMessages').val();
+				var groupId = curGroupId;
+				if(!magic.isset(message) || !magic.isset(myNumber) || !magic.isset(groupId)) {
+					return;
+				}
+				magic.sendMessageTo("target", myNumber, message, groupId);
 				
 			});
 

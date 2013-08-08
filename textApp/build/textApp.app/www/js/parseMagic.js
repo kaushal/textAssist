@@ -61,9 +61,7 @@ window.magic = (function ($, document, window, Parse) {
             }
             else
                 return [];
-
         });
-
     };
 
 
@@ -95,7 +93,7 @@ window.magic = (function ($, document, window, Parse) {
             return Parse.Promise.when(promises)
                 .then(function (Table) {   
                     var finalList = [];  
-                    if(!isset(Table)) {
+                    if(!magic.isset(Table)) {
                         return finalList;
                     }   
                     var field = Table[0].toJSON();   
@@ -199,19 +197,47 @@ window.magic = (function ($, document, window, Parse) {
             Row.set("genChat", messages);
             Row.save();
         });
-
      };
-    magic.sendMessageTo = function (sendType, message, groupId) {
+
+    magic.sendMessageToTarget = function(fromNumber, message, groupId){
+        var GroupTable = Parse.Object.extend("Groups");
+        var query = new Parse.Query(GroupTable);
+
+        query.equalTo("groupId", groupId);
+
+        query.first().then(function (Row) {            //  Found group to add message to
+            if(!magic.isset(Row)) {
+                return;
+            }
+            var messages = Row.toJSON().targetChat;    //  users current group ids he belongs to
+            var number = Row.toJSON().number; 
+            if(number !== fromNumber) { //  check to see if from number is the owner of the group
+                return; //  Not the owner, not allowed to post to target
+            }
+
+            var currentMessage = fromNumber + ": " + message;
+            messages.push(currentMessage);
+            
+            Row.set("targetChat", messages);
+
+            Row.save();
+            
+        });
+     };
+
+    magic.sendMessageTo = function (sendType, fromNumber, message, groupId) {
         if (sendType === 'target') {
             //  Send message to target
             //  Code here
 
             //  then send message to group...
-            return magic.sendMessageTo('group', message, groupId);
-        } else {
+            magic.sendMessageToTarget(fromNumber, message, groupId);
+            return true;
+        } 
+        else {
             //  Send message to group 
             //  Code here
-
+            magic.sendMessageToGroup(fromNumber, message, groupId);
             return true;
         }
         return false;
