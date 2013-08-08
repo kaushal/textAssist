@@ -5,10 +5,11 @@
 		var ERROR_LOGIN = "Could not log in";
 		var curPage = "loginPage";
 		var curGroupId = null;
+		var timer = null;
 
 		//	Queries phone to get my phone number
 		var getMyNumber = function() {
-			return "1234567890";
+			return "4124250019";
 		};
 
 		//	Gets the inputed user name from login screen
@@ -91,6 +92,9 @@
 
 		//	Go to screen
 		var goTo = function(page) {
+			if(timer !== null) {
+				clearTimeout(timer);
+			}
 			curPage = page;
 			if(curPage === "groupPage") {
 				populateGroupsList();
@@ -99,7 +103,10 @@
 				populateContactList();
 			}
 			else if(curPage === "groupChatPage") {
-				// populateMessages();
+				timer = setInterval(pollForChatData, 2000);
+			}
+			else if(curPage === "targetChatPage") {
+				timer = setInterval(pollForChatData, 2000);
 			}
 			showPage(page);
 		};
@@ -149,11 +156,29 @@
 
 		//	Poll for chat data
 		var pollForChatData = function() {
-			var groupMessages = magic.getGroupMessages();
-			var targetMessages = magic.getTargetMessages();
+			var groupId = curGroupId;
 
-			
+			magic.getGroupMessages(groupId).then(function(messages){
+				if(!magic.isset(messages)) {
+					return;
+				}
+				$('#groupChatList').empty();
+				for (var i = 0; i < messages.length; i++) {
+					$('#groupChatList').append("<li>"+ messages[i]  +"</li>");
+				}
 
+			});
+			magic.getTargetMessages(groupId).then(function(messages){
+				if(!magic.isset(messages)) {
+					return;
+				}
+				$('#targetChatList').empty();
+				for (var i = 0; i < messages.length; i++) {
+					$('#targetChatList').append("<li>"+ messages[i]  +"</li>");
+				}
+			});
+
+			return;
 		};
 
 		//	Bind all of the click events
@@ -228,9 +253,11 @@
 				var target = getTargetNumber();
 				var groupName = getGroupName();
 				var groupMembers = getSelectedFriends();
-				magic.bindGroup(groupName, number, groupMembers, target);
-				curPage = "groupChatPage";
-				goTo("groupChatPage");
+				magic.bindGroup(groupName, number, groupMembers, target).then(function(groupId){
+					curGroupId = groupId;
+					curPage = "groupChatPage";
+					goTo("groupChatPage");
+				});
 				return;
 			});
 

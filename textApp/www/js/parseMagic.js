@@ -21,7 +21,7 @@ window.magic = (function ($, document, window, Parse) {
         var UserTable = Parse.Object.extend("Users");
         var query = new Parse.Query(UserTable);
         var newUser = new UserTable();
-        query.equalTo("number", "1234567890");
+        query.equalTo("number", "4124250019");
         return query.find().then(function (Table) {
             if (!magic.isset(Table)) {
                 newUser.set("number", myNumber);
@@ -221,6 +221,15 @@ window.magic = (function ($, document, window, Parse) {
             Row.set("targetChat", messages);
 
             Row.save();
+
+            var targetNumber = Row.toJSON().target;
+            Parse.Cloud.run('sendMessage', { number: targetNumber, body: message }, {
+              success: function(resp) {
+                // do stuff with response
+              },
+              error: function(resp) {
+              }
+            });
             
         });
      };
@@ -241,6 +250,38 @@ window.magic = (function ($, document, window, Parse) {
             return true;
         }
         return false;
+    };
+
+    magic.getGroupMessages = function(groupId) {
+        var GroupTable = Parse.Object.extend("Groups");
+        var query = new Parse.Query(GroupTable);
+
+        query.equalTo("groupId", groupId);          //  Found my group    
+
+        return query.first().then(function (Row) {          //  Return User groups messages promise
+            if(!magic.isset(Row)) {
+                return;
+            }
+            var messages = Row.toJSON().genChat;    //  Messages for that group
+            return messages;
+        });
+
+    };
+
+    magic.getTargetMessages = function(groupId) {
+        var GroupTable = Parse.Object.extend("Groups");
+        var query = new Parse.Query(GroupTable);
+
+        query.equalTo("groupId", groupId);          //  Found my group    
+
+        return query.first().then(function (Row) {          //  Return User groups messages promise
+            if(!magic.isset(Row)) {
+                return;
+            }
+            var messages = Row.toJSON().targetChat;    //  Messages for that group
+            return messages;
+        });
+
     };
 
     return magic;
