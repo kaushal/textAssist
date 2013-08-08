@@ -103,12 +103,11 @@
 				populateContactList();
 			}
 			else if(curPage === "groupChatPage") {
-				// timer = setInterval(pollForChatData, 2000);
+				timer = setInterval(pollForChatData, 2000);
 			}
 			else if(curPage === "targetChatPage") {
-				// timer = setInterval(pollForChatData, 2000);
+				timer = setInterval(pollForChatData, 2000);
 			}
-			pollForChatData();
 			showPage(page);
 		};
 
